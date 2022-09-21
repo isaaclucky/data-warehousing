@@ -56,7 +56,7 @@ x-airflow-common:
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'fakse'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
   volumes:
@@ -72,6 +72,36 @@ x-airflow-common:
       condition: service_healthy
 
 services:
+# # sdvsd
+#   database:
+#     image: postgres
+#     environment:
+#       POSTGRES_USER: "root"
+#       POSTGRES_PASSWORD: "password"
+#       POSTGRES_DB: "dbt"
+#     ports:
+#       - "5432:5432"
+
+#   test:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.test
+#       args:
+#         # Run `make .env` to set $USER_ID and $GROUP_ID
+#         USER_ID: ${USER_ID:-}
+#         GROUP_ID: ${GROUP_ID:-}
+#     command: "/root/.virtualenvs/dbt/bin/pytest"
+#     environment:
+#       POSTGRES_TEST_HOST: "database"
+#     volumes:
+#       - .:/usr/app
+#     working_dir: /usr/app
+#     depends_on:
+#       - database
+
+# # networks:
+# #   default:
+# #     name: dbt-net
   postgres:
     image: postgres:13
     environment:
