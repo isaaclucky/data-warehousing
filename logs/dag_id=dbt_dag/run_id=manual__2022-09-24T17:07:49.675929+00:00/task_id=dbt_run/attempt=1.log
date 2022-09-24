@@ -1,0 +1,35 @@
+[2022-09-24T17:08:13.744+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T17:07:49.675929+00:00 [queued]>
+[2022-09-24T17:08:13.776+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T17:07:49.675929+00:00 [queued]>
+[2022-09-24T17:08:13.776+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:08:13.777+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-09-24T17:08:13.777+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:08:13.805+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): dbt_run> on 2022-09-24 17:07:49.675929+00:00
+[2022-09-24T17:08:13.811+0000] {standard_task_runner.py:54} INFO - Started process 158 to run task
+[2022-09-24T17:08:13.816+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'dbt_run', 'manual__2022-09-24T17:07:49.675929+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmpz1krji4e']
+[2022-09-24T17:08:13.817+0000] {standard_task_runner.py:83} INFO - Job 77: Subtask dbt_run
+[2022-09-24T17:08:13.818+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt.py
+[2022-09-24T17:08:13.913+0000] {task_command.py:384} INFO - Running <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T17:07:49.675929+00:00 [running]> on host 76fd60607114
+[2022-09-24T17:08:14.026+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dbt_dag
+AIRFLOW_CTX_TASK_ID=dbt_run
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T17:07:49.675929+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T17:07:49.675929+00:00
+[2022-09-24T17:08:14.033+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-24T17:08:14.034+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'dbt run']
+[2022-09-24T17:08:14.061+0000] {subprocess.py:86} INFO - Output:
+[2022-09-24T17:08:14.086+0000] {subprocess.py:93} INFO - /bin/bash: line 1: dbt: command not found
+[2022-09-24T17:08:14.087+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2022-09-24T17:08:14.113+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2022-09-24T17:08:14.121+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=dbt_dag, task_id=dbt_run, execution_date=20220924T170749, start_date=20220924T170813, end_date=20220924T170814
+[2022-09-24T17:08:14.141+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 77 for task dbt_run (Bash command failed. The command returned a non-zero exit code 127.; 158)
+[2022-09-24T17:08:14.188+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T17:08:14.264+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -70,8 +70,7 @@ read_data = PostgresOperator(
     postgres_conn_id="postgres"
     )
 
-create_table
-# >> migrate>> read_data
+create_table >> migrate>> read_data
 
 
 if __name__ == "__main__":

@@ -1,0 +1,148 @@
+[2022-09-24T19:06:26.893+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_init manual__2022-09-24T19:06:25.452518+00:00 [queued]>
+[2022-09-24T19:06:26.912+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_init manual__2022-09-24T19:06:25.452518+00:00 [queued]>
+[2022-09-24T19:06:26.912+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T19:06:26.912+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-09-24T19:06:26.912+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T19:06:26.934+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): dbt_init> on 2022-09-24 19:06:25.452518+00:00
+[2022-09-24T19:06:26.940+0000] {standard_task_runner.py:54} INFO - Started process 100 to run task
+[2022-09-24T19:06:26.945+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'dbt_init', 'manual__2022-09-24T19:06:25.452518+00:00', '--job-id', '110', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmp0xn_482j']
+[2022-09-24T19:06:26.945+0000] {standard_task_runner.py:83} INFO - Job 110: Subtask dbt_init
+[2022-09-24T19:06:26.947+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_dag.py
+[2022-09-24T19:06:27.088+0000] {task_command.py:384} INFO - Running <TaskInstance: dbt_dag.dbt_init manual__2022-09-24T19:06:25.452518+00:00 [running]> on host 1e3e39d515da
+[2022-09-24T19:06:27.243+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=astronomer
+AIRFLOW_CTX_DAG_ID=dbt_dag
+AIRFLOW_CTX_TASK_ID=dbt_init
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T19:06:25.452518+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T19:06:25.452518+00:00
+[2022-09-24T19:06:27.253+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-24T19:06:27.254+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'pip install dbt-postgres']
+[2022-09-24T19:06:27.273+0000] {subprocess.py:86} INFO - Output:
+[2022-09-24T19:06:29.451+0000] {subprocess.py:93} INFO - Defaulting to user installation because normal site-packages is not writeable
+[2022-09-24T19:06:30.469+0000] {subprocess.py:93} INFO - Collecting dbt-postgres
+[2022-09-24T19:06:31.041+0000] {subprocess.py:93} INFO -   Downloading dbt_postgres-1.2.1-py3-none-any.whl (16 kB)
+[2022-09-24T19:06:31.538+0000] {subprocess.py:93} INFO - Collecting psycopg2-binary~=2.8
+[2022-09-24T19:06:31.677+0000] {subprocess.py:93} INFO -   Downloading psycopg2_binary-2.9.3-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+[2022-09-24T19:07:13.148+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 64.5 kB/s eta 0:00:00
+[2022-09-24T19:07:13.425+0000] {subprocess.py:93} INFO - Collecting dbt-core==1.2.1
+[2022-09-24T19:07:13.593+0000] {subprocess.py:93} INFO -   Downloading dbt_core-1.2.1-py3-none-any.whl (873 kB)
+[2022-09-24T19:07:25.087+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 873.4/873.4 kB 76.1 kB/s eta 0:00:00
+[2022-09-24T19:07:25.294+0000] {subprocess.py:93} INFO - Collecting minimal-snowplow-tracker==0.0.2
+[2022-09-24T19:07:25.466+0000] {subprocess.py:93} INFO -   Downloading minimal-snowplow-tracker-0.0.2.tar.gz (12 kB)
+[2022-09-24T19:07:25.595+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): started
+[2022-09-24T19:07:26.942+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2022-09-24T19:07:27.205+0000] {subprocess.py:93} INFO - Collecting dbt-extractor~=0.4.1
+[2022-09-24T19:07:27.422+0000] {subprocess.py:93} INFO -   Downloading dbt_extractor-0.4.1-cp36-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.1 MB)
+[2022-09-24T19:07:43.923+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 66.8 kB/s eta 0:00:00
+[2022-09-24T19:07:43.931+0000] {subprocess.py:93} INFO - Requirement already satisfied: click<9,>=7.0 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (8.1.3)
+[2022-09-24T19:07:44.134+0000] {subprocess.py:93} INFO - Collecting Jinja2==2.11.3
+[2022-09-24T19:07:44.267+0000] {subprocess.py:93} INFO -   Downloading Jinja2-2.11.3-py2.py3-none-any.whl (125 kB)
+[2022-09-24T19:07:45.359+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.7/125.7 kB 119.2 kB/s eta 0:00:00
+[2022-09-24T19:07:45.363+0000] {subprocess.py:93} INFO - Requirement already satisfied: colorama<0.4.6,>=0.3.9 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (0.4.5)
+[2022-09-24T19:07:45.365+0000] {subprocess.py:93} INFO - Requirement already satisfied: typing-extensions>=3.7.4 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (4.3.0)
+[2022-09-24T19:07:45.367+0000] {subprocess.py:93} INFO - Requirement already satisfied: cffi<2.0.0,>=1.9 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (1.15.1)
+[2022-09-24T19:07:45.368+0000] {subprocess.py:93} INFO - Requirement already satisfied: idna<4,>=2.5 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (3.4)
+[2022-09-24T19:07:45.583+0000] {subprocess.py:93} INFO - Collecting networkx<2.8.1,>=2.3
+[2022-09-24T19:07:45.719+0000] {subprocess.py:93} INFO -   Downloading networkx-2.6.3-py3-none-any.whl (1.9 MB)
+[2022-09-24T19:08:15.552+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 64.6 kB/s eta 0:00:00
+[2022-09-24T19:08:15.790+0000] {subprocess.py:93} INFO - Collecting mashumaro==2.9
+[2022-09-24T19:08:15.984+0000] {subprocess.py:93} INFO -   Downloading mashumaro-2.9-py3-none-any.whl (34 kB)
+[2022-09-24T19:08:16.333+0000] {subprocess.py:93} INFO - Requirement already satisfied: packaging<22.0,>=20.9 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (21.3)
+[2022-09-24T19:08:16.335+0000] {subprocess.py:93} INFO - Requirement already satisfied: requests<3.0.0 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (2.28.0)
+[2022-09-24T19:08:16.589+0000] {subprocess.py:93} INFO - Collecting logbook<1.6,>=1.5
+[2022-09-24T19:08:16.784+0000] {subprocess.py:93} INFO -   Downloading Logbook-1.5.3.tar.gz (85 kB)
+[2022-09-24T19:08:17.639+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.8/85.8 kB 103.8 kB/s eta 0:00:00
+[2022-09-24T19:08:17.684+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): started
+[2022-09-24T19:08:19.087+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2022-09-24T19:08:19.092+0000] {subprocess.py:93} INFO - Requirement already satisfied: sqlparse<0.5,>=0.2.3 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (0.4.2)
+[2022-09-24T19:08:19.093+0000] {subprocess.py:93} INFO - Requirement already satisfied: isodate<0.7,>=0.6 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (0.6.1)
+[2022-09-24T19:08:19.316+0000] {subprocess.py:93} INFO - Collecting agate<1.6.4,>=1.6
+[2022-09-24T19:08:19.448+0000] {subprocess.py:93} INFO -   Downloading agate-1.6.3-py2.py3-none-any.whl (100 kB)
+[2022-09-24T19:08:20.602+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.5/100.5 kB 92.6 kB/s eta 0:00:00
+[2022-09-24T19:08:20.781+0000] {subprocess.py:93} INFO - Collecting hologram<=0.0.15,>=0.0.14
+[2022-09-24T19:08:20.957+0000] {subprocess.py:93} INFO -   Downloading hologram-0.0.15-py3-none-any.whl (11 kB)
+[2022-09-24T19:08:21.066+0000] {subprocess.py:93} INFO - Requirement already satisfied: werkzeug<3,>=1 in /home/***/.local/lib/python3.7/site-packages (from dbt-core==1.2.1->dbt-postgres) (2.2.2)
+[2022-09-24T19:08:21.416+0000] {subprocess.py:93} INFO - Collecting MarkupSafe<2.1,>=0.23
+[2022-09-24T19:08:21.577+0000] {subprocess.py:93} INFO -   Downloading MarkupSafe-2.0.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (31 kB)
+[2022-09-24T19:08:21.965+0000] {subprocess.py:93} INFO - Requirement already satisfied: pyyaml>=3.13 in /home/***/.local/lib/python3.7/site-packages (from mashumaro==2.9->dbt-core==1.2.1->dbt-postgres) (6.0)
+[2022-09-24T19:08:21.968+0000] {subprocess.py:93} INFO - Requirement already satisfied: msgpack>=0.5.6 in /home/***/.local/lib/python3.7/site-packages (from mashumaro==2.9->dbt-core==1.2.1->dbt-postgres) (1.0.4)
+[2022-09-24T19:08:21.977+0000] {subprocess.py:93} INFO - Requirement already satisfied: six<2.0,>=1.9.0 in /home/***/.local/lib/python3.7/site-packages (from minimal-snowplow-tracker==0.0.2->dbt-core==1.2.1->dbt-postgres) (1.16.0)
+[2022-09-24T19:08:22.330+0000] {subprocess.py:93} INFO - Collecting pytimeparse>=1.1.5
+[2022-09-24T19:08:22.474+0000] {subprocess.py:93} INFO -   Downloading pytimeparse-1.1.8-py2.py3-none-any.whl (10.0 kB)
+[2022-09-24T19:08:22.557+0000] {subprocess.py:93} INFO - Requirement already satisfied: Babel>=2.0 in /home/***/.local/lib/python3.7/site-packages (from agate<1.6.4,>=1.6->dbt-core==1.2.1->dbt-postgres) (2.10.3)
+[2022-09-24T19:08:22.708+0000] {subprocess.py:93} INFO - Collecting parsedatetime!=2.5,!=2.6,>=2.1
+[2022-09-24T19:08:22.870+0000] {subprocess.py:93} INFO -   Downloading parsedatetime-2.4.tar.gz (58 kB)
+[2022-09-24T19:08:23.594+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 79.6 kB/s eta 0:00:00
+[2022-09-24T19:08:23.640+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): started
+[2022-09-24T19:08:24.937+0000] {subprocess.py:93} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2022-09-24T19:08:25.207+0000] {subprocess.py:93} INFO - Collecting leather>=0.3.2
+[2022-09-24T19:08:25.393+0000] {subprocess.py:93} INFO -   Downloading leather-0.3.4-py2.py3-none-any.whl (31 kB)
+[2022-09-24T19:08:25.927+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-slugify>=1.2.1 in /home/***/.local/lib/python3.7/site-packages (from agate<1.6.4,>=1.6->dbt-core==1.2.1->dbt-postgres) (6.1.2)
+[2022-09-24T19:08:25.931+0000] {subprocess.py:93} INFO - Requirement already satisfied: pycparser in /home/***/.local/lib/python3.7/site-packages (from cffi<2.0.0,>=1.9->dbt-core==1.2.1->dbt-postgres) (2.21)
+[2022-09-24T19:08:25.941+0000] {subprocess.py:93} INFO - Requirement already satisfied: importlib-metadata in /home/***/.local/lib/python3.7/site-packages (from click<9,>=7.0->dbt-core==1.2.1->dbt-postgres) (4.12.0)
+[2022-09-24T19:08:25.960+0000] {subprocess.py:93} INFO - Requirement already satisfied: python-dateutil<2.9,>=2.8 in /home/***/.local/lib/python3.7/site-packages (from hologram<=0.0.15,>=0.0.14->dbt-core==1.2.1->dbt-postgres) (2.8.2)
+[2022-09-24T19:08:26.189+0000] {subprocess.py:93} INFO - Collecting jsonschema<4.0,>=3.0
+[2022-09-24T19:08:26.357+0000] {subprocess.py:93} INFO -   Downloading jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+[2022-09-24T19:08:27.314+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 kB 57.0 kB/s eta 0:00:00
+[2022-09-24T19:08:27.419+0000] {subprocess.py:93} INFO - Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /home/***/.local/lib/python3.7/site-packages (from packaging<22.0,>=20.9->dbt-core==1.2.1->dbt-postgres) (3.0.9)
+[2022-09-24T19:08:27.435+0000] {subprocess.py:93} INFO - Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/***/.local/lib/python3.7/site-packages (from requests<3.0.0->dbt-core==1.2.1->dbt-postgres) (1.26.12)
+[2022-09-24T19:08:27.438+0000] {subprocess.py:93} INFO - Requirement already satisfied: charset-normalizer~=2.0.0 in /home/***/.local/lib/python3.7/site-packages (from requests<3.0.0->dbt-core==1.2.1->dbt-postgres) (2.0.12)
+[2022-09-24T19:08:27.440+0000] {subprocess.py:93} INFO - Requirement already satisfied: certifi>=2017.4.17 in /home/***/.local/lib/python3.7/site-packages (from requests<3.0.0->dbt-core==1.2.1->dbt-postgres) (2022.9.14)
+[2022-09-24T19:08:27.697+0000] {subprocess.py:93} INFO - Collecting werkzeug<3,>=1
+[2022-09-24T19:08:27.866+0000] {subprocess.py:93} INFO -   Downloading Werkzeug-2.2.1-py3-none-any.whl (232 kB)
+[2022-09-24T19:08:30.222+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.4/232.4 kB 105.2 kB/s eta 0:00:00
+[2022-09-24T19:08:30.474+0000] {subprocess.py:93} INFO -   Downloading Werkzeug-2.2.0-py3-none-any.whl (232 kB)
+[2022-09-24T19:08:34.046+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.2/232.2 kB 65.9 kB/s eta 0:00:00
+[2022-09-24T19:08:34.261+0000] {subprocess.py:93} INFO -   Downloading Werkzeug-2.1.2-py3-none-any.whl (224 kB)
+[2022-09-24T19:08:37.928+0000] {subprocess.py:93} INFO -      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.9/224.9 kB 62.7 kB/s eta 0:00:00
+[2022-09-24T19:08:37.942+0000] {subprocess.py:93} INFO - Requirement already satisfied: pytz>=2015.7 in /home/***/.local/lib/python3.7/site-packages (from Babel>=2.0->agate<1.6.4,>=1.6->dbt-core==1.2.1->dbt-postgres) (2022.1)
+[2022-09-24T19:08:37.983+0000] {subprocess.py:93} INFO - Requirement already satisfied: setuptools in /usr/local/lib/python3.7/site-packages (from jsonschema<4.0,>=3.0->hologram<=0.0.15,>=0.0.14->dbt-core==1.2.1->dbt-postgres) (57.5.0)
+[2022-09-24T19:08:37.985+0000] {subprocess.py:93} INFO - Requirement already satisfied: attrs>=17.4.0 in /home/***/.local/lib/python3.7/site-packages (from jsonschema<4.0,>=3.0->hologram<=0.0.15,>=0.0.14->dbt-core==1.2.1->dbt-postgres) (22.1.0)
+[2022-09-24T19:08:37.986+0000] {subprocess.py:93} INFO - Requirement already satisfied: pyrsistent>=0.14.0 in /home/***/.local/lib/python3.7/site-packages (from jsonschema<4.0,>=3.0->hologram<=0.0.15,>=0.0.14->dbt-core==1.2.1->dbt-postgres) (0.18.1)
+[2022-09-24T19:08:38.004+0000] {subprocess.py:93} INFO - Requirement already satisfied: future in /home/***/.local/lib/python3.7/site-packages (from parsedatetime!=2.5,!=2.6,>=2.1->agate<1.6.4,>=1.6->dbt-core==1.2.1->dbt-postgres) (0.18.2)
+[2022-09-24T19:08:38.030+0000] {subprocess.py:93} INFO - Requirement already satisfied: text-unidecode>=1.3 in /home/***/.local/lib/python3.7/site-packages (from python-slugify>=1.2.1->agate<1.6.4,>=1.6->dbt-core==1.2.1->dbt-postgres) (1.3)
+[2022-09-24T19:08:38.127+0000] {subprocess.py:93} INFO - Requirement already satisfied: zipp>=0.5 in /home/***/.local/lib/python3.7/site-packages (from importlib-metadata->click<9,>=7.0->dbt-core==1.2.1->dbt-postgres) (3.8.1)
+[2022-09-24T19:08:38.346+0000] {subprocess.py:93} INFO - Building wheels for collected packages: minimal-snowplow-tracker, logbook, parsedatetime
+[2022-09-24T19:08:38.348+0000] {subprocess.py:93} INFO -   Building wheel for minimal-snowplow-tracker (setup.py): started
+[2022-09-24T19:08:39.920+0000] {subprocess.py:93} INFO -   Building wheel for minimal-snowplow-tracker (setup.py): finished with status 'done'
+[2022-09-24T19:08:39.921+0000] {subprocess.py:93} INFO -   Created wheel for minimal-snowplow-tracker: filename=minimal_snowplow_tracker-0.0.2-py3-none-any.whl size=17817 sha256=3a6387e122f5202dd33d9e77743fd40a40a04a4ee7e1956e8c97bd8b0ec4c914
+[2022-09-24T19:08:39.921+0000] {subprocess.py:93} INFO -   Stored in directory: /home/***/.cache/pip/wheels/9d/ee/55/8faefee41ca3bccb25152e0159002567575047be7ef1ce8ac1
+[2022-09-24T19:08:39.927+0000] {subprocess.py:93} INFO -   Building wheel for logbook (setup.py): started
+[2022-09-24T19:08:41.527+0000] {subprocess.py:93} INFO -   Building wheel for logbook (setup.py): finished with status 'done'
+[2022-09-24T19:08:41.528+0000] {subprocess.py:93} INFO -   Created wheel for logbook: filename=Logbook-1.5.3-cp37-cp37m-linux_x86_64.whl size=66398 sha256=9719ef90a57ad501c7ce72335889e1442c5db8028778a314cd4fe335e98ed72d
+[2022-09-24T19:08:41.529+0000] {subprocess.py:93} INFO -   Stored in directory: /home/***/.cache/pip/wheels/95/4b/a3/fc9b9d17a06a956767a8dc74058ba64d4306653df2289094cc
+[2022-09-24T19:08:41.534+0000] {subprocess.py:93} INFO -   Building wheel for parsedatetime (setup.py): started
+[2022-09-24T19:08:43.023+0000] {subprocess.py:93} INFO -   Building wheel for parsedatetime (setup.py): finished with status 'done'
+[2022-09-24T19:08:43.024+0000] {subprocess.py:93} INFO -   Created wheel for parsedatetime: filename=parsedatetime-2.4-py3-none-any.whl size=42773 sha256=385afd11f42ae3a620c26683908cfa6f7ba6825549a21093c21360444a6be51e
+[2022-09-24T19:08:43.024+0000] {subprocess.py:93} INFO -   Stored in directory: /home/***/.cache/pip/wheels/68/0f/b7/539a31a4068565a53913d7f8cfc6c7521cca2ea091b8a72048
+[2022-09-24T19:08:43.029+0000] {subprocess.py:93} INFO - Successfully built minimal-snowplow-tracker logbook parsedatetime
+[2022-09-24T19:08:53.362+0000] {subprocess.py:93} INFO - Installing collected packages: pytimeparse, logbook, werkzeug, psycopg2-binary, parsedatetime, networkx, mashumaro, MarkupSafe, leather, dbt-extractor, minimal-snowplow-tracker, jsonschema, Jinja2, agate, hologram, dbt-core, dbt-postgres
+[2022-09-24T19:08:53.454+0000] {subprocess.py:93} INFO -   Attempting uninstall: werkzeug
+[2022-09-24T19:08:53.456+0000] {subprocess.py:93} INFO -     Found existing installation: Werkzeug 2.2.2
+[2022-09-24T19:08:53.491+0000] {subprocess.py:93} INFO -     Uninstalling Werkzeug-2.2.2:
+[2022-09-24T19:08:53.550+0000] {subprocess.py:93} INFO -       Successfully uninstalled Werkzeug-2.2.2
+[2022-09-24T19:08:55.472+0000] {subprocess.py:93} INFO -   Attempting uninstall: MarkupSafe
+[2022-09-24T19:08:55.474+0000] {subprocess.py:93} INFO -     Found existing installation: MarkupSafe 2.1.1
+[2022-09-24T19:08:55.479+0000] {subprocess.py:93} INFO -     Uninstalling MarkupSafe-2.1.1:
+[2022-09-24T19:08:55.487+0000] {subprocess.py:93} INFO -       Successfully uninstalled MarkupSafe-2.1.1
+[2022-09-24T19:08:55.611+0000] {subprocess.py:93} INFO -   Attempting uninstall: jsonschema
+[2022-09-24T19:08:55.614+0000] {subprocess.py:93} INFO -     Found existing installation: jsonschema 4.16.0
+[2022-09-24T19:08:55.637+0000] {subprocess.py:93} INFO -     Uninstalling jsonschema-4.16.0:
+[2022-09-24T19:08:55.672+0000] {subprocess.py:93} INFO -       Successfully uninstalled jsonschema-4.16.0
+[2022-09-24T19:08:55.744+0000] {subprocess.py:93} INFO -   Attempting uninstall: Jinja2
+[2022-09-24T19:08:55.746+0000] {subprocess.py:93} INFO -     Found existing installation: Jinja2 3.1.2
+[2022-09-24T19:08:55.765+0000] {subprocess.py:93} INFO -     Uninstalling Jinja2-3.1.2:
+[2022-09-24T19:08:55.791+0000] {subprocess.py:93} INFO -       Successfully uninstalled Jinja2-3.1.2
+[2022-09-24T19:08:56.693+0000] {subprocess.py:93} INFO - ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+[2022-09-24T19:08:56.693+0000] {subprocess.py:93} INFO - flask 2.2.2 requires Jinja2>=3.0, but you have jinja2 2.11.3 which is incompatible.
+[2022-09-24T19:08:56.694+0000] {subprocess.py:93} INFO - flask 2.2.2 requires Werkzeug>=2.2.2, but you have werkzeug 2.1.2 which is incompatible.
+[2022-09-24T19:08:56.694+0000] {subprocess.py:93} INFO - Successfully installed Jinja2-2.11.3 MarkupSafe-2.0.1 agate-1.6.3 dbt-core-1.2.1 dbt-extractor-0.4.1 dbt-postgres-1.2.1 hologram-0.0.15 jsonschema-3.2.0 leather-0.3.4 logbook-1.5.3 mashumaro-2.9 minimal-snowplow-tracker-0.0.2 networkx-2.6.3 parsedatetime-2.4 psycopg2-binary-2.9.3 pytimeparse-1.1.8 werkzeug-2.1.2
+[2022-09-24T19:08:57.504+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2022-09-24T19:08:57.540+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=dbt_dag, task_id=dbt_init, execution_date=20220924T190625, start_date=20220924T190626, end_date=20220924T190857
+[2022-09-24T19:08:57.601+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-09-24T19:08:57.647+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

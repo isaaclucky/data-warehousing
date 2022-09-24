@@ -63,13 +63,21 @@ x-airflow-common:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
+    - ./data:/opt/airflow/data
+    - ./migrate_to_dbt:/opt/airflow/migrate_to_dbt
   user: "${AIRFLOW_UID:-50000}:0"
+
+
   depends_on:
     &airflow-common-depends-on
     redis:
       condition: service_healthy
     postgres:
       condition: service_healthy
+    # dbt-server:
+    #   condition: service_healthy
+    # dbt-console:
+    #   condition: service_healthy
 
 services:
 # # sdvsd
@@ -108,8 +116,10 @@ services:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
+    ports:
+      - 5434:5432
     volumes:
-      - postgres-db-volume:/var/lib/postgresql/data
+      - ./data:/data
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 5s
@@ -126,7 +136,40 @@ services:
       timeout: 30s
       retries: 50
     restart: always
+  dbt-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    command: [ "dbt-rpc", "serve" ]
+    env_file: .env
+    environment:
+      - DBT_ENABLE_LEGACY_LOGGER=True
+    ports:
+      - '8581:8580'
+    volumes:
+      - ./migrate_to_dbt:/app
 
+    depends_on:
+      - postgres
+
+    # volumes:
+    #   - ./migrate_to_dbt:/app
+      # - ./data/:/app/data/
+  dbt-console:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    command: [ "/bin/bash", "dbt","run"]
+
+    env_file: .env
+    stdin_open: true
+    tty: true
+    depends_on:
+      - postgres
+    ports:
+      - '8001:8001'
+    volumes:
+      - ./migrate_to_dbt:/app
   airflow-webserver:
     <<: *airflow-common
     command: webserver

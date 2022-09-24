@@ -1,0 +1,15 @@
+[2022-09-24T17:10:16.701+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data manual__2022-09-24T17:10:15.356796+00:00 [queued]>
+[2022-09-24T17:10:16.717+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data manual__2022-09-24T17:10:15.356796+00:00 [queued]>
+[2022-09-24T17:10:16.718+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:10:16.718+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-09-24T17:10:16.718+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:10:16.737+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): model.migrate_to_dbt.view_data> on 2022-09-24 17:10:15.356796+00:00
+[2022-09-24T17:10:16.743+0000] {standard_task_runner.py:54} INFO - Started process 251 to run task
+[2022-09-24T17:10:16.747+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'model.migrate_to_dbt.view_data', 'manual__2022-09-24T17:10:15.356796+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/dbt_try.py', '--cfg-path', '/tmp/tmpezfck98x']
+[2022-09-24T17:10:16.748+0000] {standard_task_runner.py:83} INFO - Job 79: Subtask model.migrate_to_dbt.view_data
+[2022-09-24T17:10:16.749+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_try.py
+[2022-09-24T17:10:16.751+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 79 for task model.migrate_to_dbt.view_data (Dag 'dbt_dag' could not be found; either it does not exist or it failed to parse.; 251)
+[2022-09-24T17:10:16.772+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T17:10:16.838+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

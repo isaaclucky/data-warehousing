@@ -1,0 +1,38 @@
+[2022-09-24T17:01:50.289+0000] {taskinstance.py:1159} INFO - Dependencies not met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T16:57:34.905865+00:00 [removed]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_tasks_state={'total': 1, 'successes': 0, 'skipped': 0, 'failed': 0, 'upstream_failed': 0, 'done': 1}, upstream_task_ids={'load'}
+[2022-09-24T17:01:50.301+0000] {taskinstance.py:1159} INFO - Dependencies not met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T16:57:34.905865+00:00 [removed]>, dependency 'Task Instance State' FAILED: Task is in the 'removed' state.
+[2022-09-24T17:01:50.307+0000] {local_task_job.py:103} INFO - Task is not able to be run
+[2022-09-24T17:03:29.197+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T16:57:34.905865+00:00 [queued]>
+[2022-09-24T17:03:29.216+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T16:57:34.905865+00:00 [queued]>
+[2022-09-24T17:03:29.216+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:03:29.216+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-09-24T17:03:29.216+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T17:03:29.238+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): dbt_run> on 2022-09-24 16:57:34.905865+00:00
+[2022-09-24T17:03:29.245+0000] {standard_task_runner.py:54} INFO - Started process 458 to run task
+[2022-09-24T17:03:29.249+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'dbt_run', 'manual__2022-09-24T16:57:34.905865+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmps_5_ay8l']
+[2022-09-24T17:03:29.250+0000] {standard_task_runner.py:83} INFO - Job 72: Subtask dbt_run
+[2022-09-24T17:03:29.251+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt.py
+[2022-09-24T17:03:29.364+0000] {task_command.py:384} INFO - Running <TaskInstance: dbt_dag.dbt_run manual__2022-09-24T16:57:34.905865+00:00 [running]> on host 76fd60607114
+[2022-09-24T17:03:29.508+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dbt_dag
+AIRFLOW_CTX_TASK_ID=dbt_run
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T16:57:34.905865+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T16:57:34.905865+00:00
+[2022-09-24T17:03:29.510+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-24T17:03:29.511+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'dbt run']
+[2022-09-24T17:03:29.531+0000] {subprocess.py:86} INFO - Output:
+[2022-09-24T17:03:29.539+0000] {subprocess.py:93} INFO - /bin/bash: line 1: dbt: command not found
+[2022-09-24T17:03:29.539+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2022-09-24T17:03:29.560+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2022-09-24T17:03:29.568+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=dbt_dag, task_id=dbt_run, execution_date=20220924T165734, start_date=20220924T170329, end_date=20220924T170329
+[2022-09-24T17:03:29.603+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 72 for task dbt_run (Bash command failed. The command returned a non-zero exit code 127.; 458)
+[2022-09-24T17:03:29.661+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T17:03:29.706+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

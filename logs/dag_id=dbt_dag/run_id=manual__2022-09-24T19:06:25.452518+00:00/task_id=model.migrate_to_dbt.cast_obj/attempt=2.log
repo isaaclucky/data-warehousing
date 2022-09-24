@@ -1,0 +1,73 @@
+[2022-09-24T19:11:28.144+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.cast_obj manual__2022-09-24T19:06:25.452518+00:00 [queued]>
+[2022-09-24T19:11:28.159+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.cast_obj manual__2022-09-24T19:06:25.452518+00:00 [queued]>
+[2022-09-24T19:11:28.160+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T19:11:28.160+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 2
+[2022-09-24T19:11:28.160+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T19:11:28.178+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): model.migrate_to_dbt.cast_obj> on 2022-09-24 19:06:25.452518+00:00
+[2022-09-24T19:11:28.185+0000] {standard_task_runner.py:54} INFO - Started process 387 to run task
+[2022-09-24T19:11:28.189+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'model.migrate_to_dbt.cast_obj', 'manual__2022-09-24T19:06:25.452518+00:00', '--job-id', '118', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmpfv6pq_6v']
+[2022-09-24T19:11:28.190+0000] {standard_task_runner.py:83} INFO - Job 118: Subtask model.migrate_to_dbt.cast_obj
+[2022-09-24T19:11:28.191+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_dag.py
+[2022-09-24T19:11:28.287+0000] {task_command.py:384} INFO - Running <TaskInstance: dbt_dag.model.migrate_to_dbt.cast_obj manual__2022-09-24T19:06:25.452518+00:00 [running]> on host 1e3e39d515da
+[2022-09-24T19:11:28.444+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=astronomer
+AIRFLOW_CTX_DAG_ID=dbt_dag
+AIRFLOW_CTX_TASK_ID=model.migrate_to_dbt.cast_obj
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T19:06:25.452518+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T19:06:25.452518+00:00
+[2022-09-24T19:11:28.449+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-24T19:11:28.450+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n            cd /opt/***/migrate_to_dbt &&\n            dbt --no-write-json run --target prod --models cast_obj\n            ']
+[2022-09-24T19:11:28.471+0000] {subprocess.py:86} INFO - Output:
+[2022-09-24T19:11:33.697+0000] {subprocess.py:93} INFO - [0m19:11:33  Encountered an error while reading the project:
+[2022-09-24T19:11:33.698+0000] {subprocess.py:93} INFO - [0m19:11:33    ERROR: Runtime Error
+[2022-09-24T19:11:33.698+0000] {subprocess.py:93} INFO -   Could not find profile named 'migrate_to_dbt'
+[2022-09-24T19:11:33.720+0000] {subprocess.py:93} INFO - [0m19:11:33  Encountered an error:
+[2022-09-24T19:11:33.721+0000] {subprocess.py:93} INFO - Runtime Error
+[2022-09-24T19:11:33.721+0000] {subprocess.py:93} INFO -   Could not run dbt
+[2022-09-24T19:11:33.722+0000] {subprocess.py:93} INFO - [0m19:11:33  Traceback (most recent call last):
+[2022-09-24T19:11:33.723+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/task/base.py", line 108, in from_args
+[2022-09-24T19:11:33.723+0000] {subprocess.py:93} INFO -     config = cls.ConfigType.from_args(args)
+[2022-09-24T19:11:33.723+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/config/runtime.py", line 226, in from_args
+[2022-09-24T19:11:33.723+0000] {subprocess.py:93} INFO -     project, profile = cls.collect_parts(args)
+[2022-09-24T19:11:33.724+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/config/runtime.py", line 202, in collect_parts
+[2022-09-24T19:11:33.724+0000] {subprocess.py:93} INFO -     profile = cls._get_rendered_profile(args, profile_renderer, profile_name)
+[2022-09-24T19:11:33.724+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/config/runtime.py", line 187, in _get_rendered_profile
+[2022-09-24T19:11:33.724+0000] {subprocess.py:93} INFO -     return Profile.render_from_args(args, profile_renderer, profile_name)
+[2022-09-24T19:11:33.724+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/config/profile.py", line 433, in render_from_args
+[2022-09-24T19:11:33.725+0000] {subprocess.py:93} INFO -     threads_override=threads_override,
+[2022-09-24T19:11:33.725+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/config/profile.py", line 384, in from_raw_profiles
+[2022-09-24T19:11:33.725+0000] {subprocess.py:93} INFO -     raise DbtProjectError("Could not find profile named '{}'".format(profile_name))
+[2022-09-24T19:11:33.725+0000] {subprocess.py:93} INFO - dbt.exceptions.DbtProjectError: Runtime Error
+[2022-09-24T19:11:33.725+0000] {subprocess.py:93} INFO -   Could not find profile named 'migrate_to_dbt'
+[2022-09-24T19:11:33.726+0000] {subprocess.py:93} INFO - 
+[2022-09-24T19:11:33.726+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2022-09-24T19:11:33.726+0000] {subprocess.py:93} INFO - 
+[2022-09-24T19:11:33.726+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2022-09-24T19:11:33.727+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/main.py", line 129, in main
+[2022-09-24T19:11:33.727+0000] {subprocess.py:93} INFO -     results, succeeded = handle_and_check(args)
+[2022-09-24T19:11:33.727+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/main.py", line 191, in handle_and_check
+[2022-09-24T19:11:33.727+0000] {subprocess.py:93} INFO -     task, res = run_from_args(parsed)
+[2022-09-24T19:11:33.727+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/main.py", line 218, in run_from_args
+[2022-09-24T19:11:33.728+0000] {subprocess.py:93} INFO -     task = parsed.cls.from_args(args=parsed)
+[2022-09-24T19:11:33.728+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/task/base.py", line 185, in from_args
+[2022-09-24T19:11:33.728+0000] {subprocess.py:93} INFO -     return super().from_args(args)
+[2022-09-24T19:11:33.728+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.7/site-packages/dbt/task/base.py", line 114, in from_args
+[2022-09-24T19:11:33.728+0000] {subprocess.py:93} INFO -     raise dbt.exceptions.RuntimeException("Could not run dbt") from exc
+[2022-09-24T19:11:33.729+0000] {subprocess.py:93} INFO - dbt.exceptions.RuntimeException: Runtime Error
+[2022-09-24T19:11:33.729+0000] {subprocess.py:93} INFO -   Could not run dbt
+[2022-09-24T19:11:33.729+0000] {subprocess.py:93} INFO - 
+[2022-09-24T19:11:33.926+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2022-09-24T19:11:33.951+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2022-09-24T19:11:33.955+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=dbt_dag, task_id=model.migrate_to_dbt.cast_obj, execution_date=20220924T190625, start_date=20220924T191128, end_date=20220924T191133
+[2022-09-24T19:11:33.972+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 118 for task model.migrate_to_dbt.cast_obj (Bash command failed. The command returned a non-zero exit code 2.; 387)
+[2022-09-24T19:11:34.000+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T19:11:34.072+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
