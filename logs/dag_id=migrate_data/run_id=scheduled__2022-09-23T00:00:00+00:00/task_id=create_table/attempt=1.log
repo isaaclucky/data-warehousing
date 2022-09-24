@@ -1,0 +1,376 @@
+[2022-09-24T09:48:36.813+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T09:48:36.832+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T09:48:36.833+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T09:48:36.833+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T09:48:36.833+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T09:48:36.854+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-23 00:00:00+00:00
+[2022-09-24T09:48:36.862+0000] {standard_task_runner.py:54} INFO - Started process 108 to run task
+[2022-09-24T09:48:36.866+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmp389lhcgv']
+[2022-09-24T09:48:36.867+0000] {standard_task_runner.py:83} INFO - Job 5: Subtask create_table
+[2022-09-24T09:48:36.868+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T09:48:38.661+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [running]> on host 4b5cbff5ff8c
+[2022-09-24T09:48:38.876+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=create_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-23T00:00:00+00:00
+[2022-09-24T09:48:38.911+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 92, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 288, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 86, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 70, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres` isn't defined
+[2022-09-24T09:48:38.922+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=migrate_data, task_id=create_table, execution_date=20220923T000000, start_date=20220924T094836, end_date=20220924T094838
+[2022-09-24T09:48:38.948+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2022-09-24T09:48:38.949+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T09:48:38.949+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T09:48:38.964+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T09:48:38.964+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T09:48:38.965+0000] {taskinstance.py:1914} ERROR - Failed to send email to: ['isaaclucky88@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1457, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1603, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1664, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 92, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 288, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 86, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 70, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres` isn't defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2311, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1912, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2313, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2022-09-24T09:48:38.991+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 5 for task create_table (The conn_id `postgres` isn't defined; 108)
+[2022-09-24T09:48:39.044+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T09:48:39.094+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-09-24T11:17:37.246+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T11:17:37.265+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T11:17:37.266+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T11:17:37.266+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T11:17:37.266+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T11:17:37.335+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-23 00:00:00+00:00
+[2022-09-24T11:17:37.359+0000] {standard_task_runner.py:54} INFO - Started process 125 to run task
+[2022-09-24T11:17:37.376+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmph_2yihsr']
+[2022-09-24T11:17:37.377+0000] {standard_task_runner.py:83} INFO - Job 4: Subtask create_table
+[2022-09-24T11:17:37.380+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T11:18:07.532+0000] {timeout.py:68} ERROR - Process timed out, PID: 125
+[2022-09-24T11:18:09.756+0000] {dagbag.py:330} ERROR - Failed to import: /opt/***/dags/migrate.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/migrate.py", line 3, in <module>
+    import pandas as pd
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/__init__.py", line 50, in <module>
+    from pandas.core.api import (
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/api.py", line 29, in <module>
+    from pandas.core.arrays import Categorical
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/arrays/__init__.py", line 20, in <module>
+    from pandas.core.arrays.string_arrow import ArrowStringArray
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/arrays/string_arrow.py", line 65, in <module>
+    import pyarrow.compute as pc
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 870, in get_code
+  File "<frozen importlib._bootstrap_external>", line 542, in _code_to_timestamp_pyc
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/***/dags/migrate.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#top-level-python-code
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#reducing-dag-complexity, PID: 125
+[2022-09-24T11:18:13.220+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task create_table (Dag 'migrate_data' could not be found; either it does not exist or it failed to parse.; 125)
+[2022-09-24T11:18:17.563+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T11:18:18.754+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-09-24T12:49:48.182+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T12:49:48.191+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T12:49:48.191+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T12:49:48.191+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T12:49:48.191+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T12:49:48.202+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-23 00:00:00+00:00
+[2022-09-24T12:49:48.206+0000] {standard_task_runner.py:54} INFO - Started process 303 to run task
+[2022-09-24T12:49:48.208+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpgeien8ng']
+[2022-09-24T12:49:48.209+0000] {standard_task_runner.py:83} INFO - Job 3: Subtask create_table
+[2022-09-24T12:49:48.209+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T12:49:49.316+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [running]> on host 1d69b603112e
+[2022-09-24T12:49:49.414+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=create_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-23T00:00:00+00:00
+[2022-09-24T12:49:49.426+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2022-09-24T12:49:49.429+0000] {sql.py:315} INFO - Running statement: -- CREATE DATABASE IF NOT EXISTS `city_traffic`;
+CREATE TABLE IF NOT EXISTS  traffic_data (
+   track_id INT PRIMARY KEY,
+   type varchar(20),
+   traveled_d FLOAT,
+   avg_speed FLOAT,
+   lat FLOAT,
+   lon FLOAT,
+   speed FLOAT, 
+   lon_acc FLOAT,
+   lat_acc FLOAT,
+   time FLOAT
+);, parameters: None
+[2022-09-24T12:49:49.447+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=migrate_data, task_id=create_table, execution_date=20220923T000000, start_date=20220924T124948, end_date=20220924T124949
+[2022-09-24T12:49:49.504+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-09-24T12:49:49.542+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-09-24T13:08:10.423+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T13:08:10.435+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T13:08:10.435+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:08:10.435+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T13:08:10.435+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:08:10.449+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-23 00:00:00+00:00
+[2022-09-24T13:08:10.457+0000] {standard_task_runner.py:54} INFO - Started process 372 to run task
+[2022-09-24T13:08:10.467+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpd555x4n7']
+[2022-09-24T13:08:10.468+0000] {standard_task_runner.py:83} INFO - Job 4: Subtask create_table
+[2022-09-24T13:08:10.469+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T13:08:40.597+0000] {timeout.py:68} ERROR - Process timed out, PID: 372
+[2022-09-24T13:08:41.097+0000] {dagbag.py:330} ERROR - Failed to import: /opt/***/dags/migrate.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/migrate.py", line 3, in <module>
+    import pandas as pd
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/__init__.py", line 143, in <module>
+    from pandas.io.api import (
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/api.py", line 8, in <module>
+    from pandas.io.excel import (
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/excel/__init__.py", line 6, in <module>
+    from pandas.io.excel._odswriter import ODSWriter as _ODSWriter
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/excel/_odswriter.py", line 15, in <module>
+    from pandas.io.formats.excel import ExcelCell
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 963, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 906, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1280, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1252, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1394, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 95, in _path_isfile
+  File "<frozen importlib._bootstrap_external>", line 87, in _path_is_mode_type
+  File "<frozen importlib._bootstrap_external>", line 81, in _path_stat
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/***/dags/migrate.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#top-level-python-code
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#reducing-dag-complexity, PID: 372
+[2022-09-24T13:08:43.007+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task create_table (Dag 'migrate_data' could not be found; either it does not exist or it failed to parse.; 372)
+[2022-09-24T13:08:43.648+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T13:08:43.723+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-09-24T13:49:25.453+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T13:49:25.519+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-09-24T13:49:25.520+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:49:25.520+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T13:49:25.521+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:49:25.597+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-23 00:00:00+00:00
+[2022-09-24T13:49:25.623+0000] {standard_task_runner.py:54} INFO - Started process 915 to run task
+[2022-09-24T13:49:25.632+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpm0b24bon']
+[2022-09-24T13:49:25.634+0000] {standard_task_runner.py:83} INFO - Job 6: Subtask create_table
+[2022-09-24T13:49:25.636+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T13:49:59.080+0000] {timeout.py:68} ERROR - Process timed out, PID: 915
+[2022-09-24T13:50:00.527+0000] {dagbag.py:330} ERROR - Failed to import: /opt/***/dags/migrate.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/migrate.py", line 4, in <module>
+    from airflow.providers.postgres.operators.postgres import PostgresOperator
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 24, in <module>
+    from airflow.www import utils as wwwutils
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/www/utils.py", line 588, in <module>
+    class UtcAwareFilterGreater(UtcAwareFilterMixin, fab_sqlafilters.FilterGreater):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/***/dags/migrate.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#top-level-python-code
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#reducing-dag-complexity, PID: 915
+[2022-09-24T13:50:12.507+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 6 for task create_table (Dag 'migrate_data' could not be found; either it does not exist or it failed to parse.; 915)
+[2022-09-24T13:50:14.019+0000] {base_job.py:232} ERROR - LocalTaskJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3243, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 204, in heartbeat
+    session.merge(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2961, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3039, in _merge
+    options=options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2775, in get
+    identity_token=identity_token,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2878, in _get_impl
+    load_options=load_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 534, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1688, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1530, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3197, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3276, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3247, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2101, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3243, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2022-09-24T13:50:14.446+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T13:50:14.544+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,126 @@
+[2022-09-24T06:20:43.928+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T06:10:40.102287+00:00 [queued]>
+[2022-09-24T06:20:43.945+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T06:10:40.102287+00:00 [queued]>
+[2022-09-24T06:20:43.945+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T06:20:43.945+0000] {taskinstance.py:1363} INFO - Starting attempt 3 of 3
+[2022-09-24T06:20:43.945+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T06:20:43.972+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): migrate> on 2022-09-24 06:10:40.102287+00:00
+[2022-09-24T06:20:43.978+0000] {standard_task_runner.py:54} INFO - Started process 555 to run task
+[2022-09-24T06:20:43.982+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'migrate', 'manual__2022-09-24T06:10:40.102287+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmp0nbadlf1']
+[2022-09-24T06:20:43.983+0000] {standard_task_runner.py:83} INFO - Job 28: Subtask migrate
+[2022-09-24T06:20:43.984+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T06:20:44.730+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.migrate manual__2022-09-24T06:10:40.102287+00:00 [running]> on host 6b141fc40122
+[2022-09-24T06:20:44.844+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=migrate
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T06:10:40.102287+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T06:10:40.102287+00:00
+[2022-09-24T06:20:44.900+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/migrate.py", line 33, in migrate_data
+    echo=True, future=True)
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 534, in create_engine
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 645, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 344, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgres.psycopg2
+[2022-09-24T06:20:44.915+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=migrate_data, task_id=migrate, execution_date=20220924T061040, start_date=20220924T062043, end_date=20220924T062044
+[2022-09-24T06:20:44.937+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2022-09-24T06:20:44.938+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T06:20:44.938+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T06:20:44.948+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T06:20:44.948+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T06:20:44.949+0000] {taskinstance.py:1914} ERROR - Failed to send email to: ['isaaclucky88@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1457, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1603, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1664, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/migrate.py", line 33, in migrate_data
+    echo=True, future=True)
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 534, in create_engine
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 645, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 344, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgres.psycopg2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2311, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1912, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2313, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2022-09-24T06:20:44.968+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 28 for task migrate (Can't load plugin: sqlalchemy.dialects:postgres.psycopg2; 555)
+[2022-09-24T06:20:44.996+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T06:20:45.022+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

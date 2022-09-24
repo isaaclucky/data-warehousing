@@ -1,0 +1,34 @@
+FROM python:3.8.1-slim-buster
+
+LABEL maintainer="Yishak Tadele"
+
+# Set working directory
+WORKDIR /app
+
+# Install OS dependencies
+RUN apt-get update && apt-get install -qq -y \
+    git gcc build-essential libpq-dev --fix-missing --no-install-recommends \ 
+    && apt-get clean
+
+# latest version of pip
+RUN pip install --upgrade pip
+
+# Create directory for dbt config
+RUN mkdir -p /root/.dbt
+
+# Copy requirements.txt
+COPY requirements.txt requirements.txt
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy dbt profile
+# COPY profiles.yaml /root/.dbt/profiles.yaml
+
+# Copy source code
+COPY ./migrate_to_dbt /app
+# COPY ./data/d1_0830_0900.csv /postgres-db-volume
+# Export environement variables for dbt
+
+# Start the dbt
+CMD ["dbt-rpc", "serve"]

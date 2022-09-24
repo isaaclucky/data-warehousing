@@ -1,0 +1,31 @@
+version: 2
+
+
+models:
+  - name: objects_transformation
+    description: 'Transformation of the city traffic taken by drone 1 on 8:30 - 9:00'
+    schema: public
+    # quoting:
+    #   database: false
+    #   schema: false
+    #   identifier: false
+    # loader: stitch
+    # tables:
+    #   - name: objects
+    #     columns:
+    #       - name: type1
+    #         description: "the unique vechicles that were on the road"
+    #         tests:
+    #         - dbt_expectations.expect_column_to_exist
+    #       - name: avg_speed
+    #         description: 'the total average vechicles speed'
+    #         tests:
+    #         - dbt_expectations.expect_column_to_exist
+    #       - name: traveled_d
+    #         description: "the total distance traveled by each vechicles"
+    #         tests:
+    #         - dbt_expectations.expect_column_to_exist
+    #       - name: type1
+    #         description: "the total counts of each vechicle types" 
+    #         tests:
+    #         - dbt_expectations.expect_column_to_exist

@@ -1,0 +1,119 @@
+[2022-09-23T10:17:26.187+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: extract.extract_data manual__2022-09-23T10:17:23.338506+00:00 [queued]>
+[2022-09-23T10:17:26.199+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: extract.extract_data manual__2022-09-23T10:17:23.338506+00:00 [queued]>
+[2022-09-23T10:17:26.199+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23T10:17:26.199+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-09-23T10:17:26.199+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23T10:17:26.214+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): extract_data> on 2022-09-23 10:17:23.338506+00:00
+[2022-09-23T10:17:26.219+0000] {standard_task_runner.py:54} INFO - Started process 5427 to run task
+[2022-09-23T10:17:26.222+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'extract', 'extract_data', 'manual__2022-09-23T10:17:23.338506+00:00', '--job-id', '73', '--raw', '--subdir', 'DAGS_FOLDER/extract.py', '--cfg-path', '/tmp/tmpthzt3pqa']
+[2022-09-23T10:17:26.222+0000] {standard_task_runner.py:83} INFO - Job 73: Subtask extract_data
+[2022-09-23T10:17:26.223+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/extract.py
+[2022-09-23T10:17:26.354+0000] {task_command.py:384} INFO - Running <TaskInstance: extract.extract_data manual__2022-09-23T10:17:23.338506+00:00 [running]> on host bb4cd49efb45
+[2022-09-23T10:17:26.420+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=extract
+AIRFLOW_CTX_TASK_ID=extract_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T10:17:23.338506+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-23T10:17:23.338506+00:00
+[2022-09-23T10:17:26.430+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2022-09-23T10:17:26.433+0000] {sql.py:315} INFO - Running statement: COPY objects(track_id, type,traveled_d, avg_speed, lat, lon, speed, lon_acc, lat_acc, time)
+FROM 'd1_0830_0900.csv'
+DELIMITER ','
+CSV HEADER;, parameters: None
+[2022-09-23T10:17:26.434+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 92, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedFile: could not open file "d1_0830_0900.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+
+[2022-09-23T10:17:26.442+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=extract, task_id=extract_data, execution_date=20220923T101723, start_date=20220923T101726, end_date=20220923T101726
+[2022-09-23T10:17:26.455+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2022-09-23T10:17:26.455+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-23T10:17:26.455+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-23T10:17:26.462+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-23T10:17:26.462+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-23T10:17:26.462+0000] {taskinstance.py:1914} ERROR - Failed to send email to: ['isaaclucky88@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1457, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1603, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1664, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 92, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedFile: could not open file "d1_0830_0900.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2311, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1912, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2313, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2022-09-23T10:17:26.482+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 73 for task extract_data (could not open file "d1_0830_0900.csv" for reading: No such file or directory
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+; 5427)
+[2022-09-23T10:17:26.514+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-23T10:17:26.532+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

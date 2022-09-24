@@ -1,0 +1,611 @@
+[2022-09-24T09:53:42.370+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T09:48:34.983492+00:00 [queued]>
+[2022-09-24T09:53:42.390+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T09:48:34.983492+00:00 [queued]>
+[2022-09-24T09:53:42.390+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T09:53:42.390+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T09:53:42.390+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T09:53:42.412+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): migrate> on 2022-09-24 09:48:34.983492+00:00
+[2022-09-24T09:53:42.420+0000] {standard_task_runner.py:54} INFO - Started process 344 to run task
+[2022-09-24T09:53:42.424+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'migrate', 'manual__2022-09-24T09:48:34.983492+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmp2_r00_vj']
+[2022-09-24T09:53:42.425+0000] {standard_task_runner.py:83} INFO - Job 13: Subtask migrate
+[2022-09-24T09:53:42.426+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T09:53:43.262+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.migrate manual__2022-09-24T09:48:34.983492+00:00 [running]> on host 4b5cbff5ff8c
+[2022-09-24T09:53:43.371+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=migrate
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T09:48:34.983492+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T09:48:34.983492+00:00
+[2022-09-24T09:53:43.373+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
+  return func(*args, **kwargs)
+
+[2022-09-24T09:53:43.383+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py:586: ParserWarning: Length of header or names does not match length of data. This leads to a loss of data with index_col=False.
+  return _read(filepath_or_buffer, kwds)
+
+[2022-09-24T09:53:43.391+0000] {logging_mixin.py:117} INFO - <<<<<<<<<<start migrating data>>>>>>>>>>>>>>
+[2022-09-24T09:53:43.402+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,402 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+[2022-09-24T09:53:43.402+0000] {log.py:117} INFO - select pg_catalog.version()
+[2022-09-24T09:53:43.403+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,403 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T09:53:43.403+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T09:53:43.404+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,404 INFO sqlalchemy.engine.Engine select current_schema()
+[2022-09-24T09:53:43.404+0000] {log.py:117} INFO - select current_schema()
+[2022-09-24T09:53:43.404+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,404 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T09:53:43.404+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T09:53:43.406+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,406 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+[2022-09-24T09:53:43.406+0000] {log.py:117} INFO - show standard_conforming_strings
+[2022-09-24T09:53:43.406+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,406 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T09:53:43.406+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T09:53:43.409+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,409 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T09:53:43.409+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T09:53:43.410+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,410 INFO sqlalchemy.engine.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T09:53:43.410+0000] {log.py:117} INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T09:53:43.410+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,410 INFO sqlalchemy.engine.Engine [generated in 0.00083s] {'name': 'traffic_data'}
+[2022-09-24T09:53:43.410+0000] {log.py:117} INFO - [generated in 0.00083s] {'name': 'traffic_data'}
+[2022-09-24T09:53:43.412+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,411 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-24T09:53:43.411+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-24T09:53:43.413+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,413 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T09:53:43.413+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T09:53:43.413+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,413 INFO sqlalchemy.engine.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T09:53:43.413+0000] {log.py:117} INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T09:53:43.414+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,414 INFO sqlalchemy.engine.Engine [cached since 0.004506s ago] {'name': 'traffic_data'}
+[2022-09-24T09:53:43.414+0000] {log.py:117} INFO - [cached since 0.004506s ago] {'name': 'traffic_data'}
+[2022-09-24T09:53:43.415+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,415 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-24T09:53:43.415+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-24T09:53:43.416+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,416 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T09:53:43.416+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T09:53:43.416+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,416 INFO sqlalchemy.engine.Engine SELECT c.relname FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = %(schema)s AND c.relkind in ('r', 'p')
+[2022-09-24T09:53:43.416+0000] {log.py:117} INFO - SELECT c.relname FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = %(schema)s AND c.relkind in ('r', 'p')
+[2022-09-24T09:53:43.417+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,417 INFO sqlalchemy.engine.Engine [generated in 0.00079s] {'schema': 'public'}
+[2022-09-24T09:53:43.417+0000] {log.py:117} INFO - [generated in 0.00079s] {'schema': 'public'}
+[2022-09-24T09:53:43.419+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,419 INFO sqlalchemy.engine.Engine 
+            SELECT c.oid
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE (pg_catalog.pg_table_is_visible(c.oid))
+            AND c.relname = %(table_name)s AND c.relkind in
+            ('r', 'v', 'm', 'f', 'p')
+[2022-09-24T09:53:43.419+0000] {log.py:117} INFO - 
+            SELECT c.oid
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE (pg_catalog.pg_table_is_visible(c.oid))
+            AND c.relname = %(table_name)s AND c.relkind in
+            ('r', 'v', 'm', 'f', 'p')
+        
+[2022-09-24T09:53:43.420+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,420 INFO sqlalchemy.engine.Engine [generated in 0.00046s] {'table_name': 'traffic_data'}
+[2022-09-24T09:53:43.420+0000] {log.py:117} INFO - [generated in 0.00046s] {'table_name': 'traffic_data'}
+[2022-09-24T09:53:43.421+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,421 INFO sqlalchemy.engine.Engine 
+            SELECT a.attname,
+              pg_catalog.format_type(a.atttypid, a.atttypmod),
+              (
+                SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid)
+                FROM pg_catalog.pg_attrdef d
+                WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum
+                AND a.atthasdef
+              ) AS DEFAULT,
+              a.attnotnull,
+              a.attrelid as table_oid,
+              pgd.description as comment,
+              a.attgenerated as generated,
+                              (SELECT json_build_object(
+                    'always', a.attidentity = 'a',
+                    'start', s.seqstart,
+                    'increment', s.seqincrement,
+                    'minvalue', s.seqmin,
+                    'maxvalue', s.seqmax,
+                    'cache', s.seqcache,
+                    'cycle', s.seqcycle)
+                FROM pg_catalog.pg_sequence s
+                JOIN pg_catalog.pg_class c on s.seqrelid = c."oid"
+                WHERE c.relkind = 'S'
+                AND a.attidentity != ''
+                AND s.seqrelid = pg_catalog.pg_get_serial_sequence(
+                    a.attrelid::regclass::text, a.attname
+                )::regclass::oid
+                ) as identity_options                
+            FROM pg_catalog.pg_attribute a
+            LEFT JOIN pg_catalog.pg_description pgd ON (
+                pgd.objoid = a.attrelid AND pgd.objsubid = a.attnum)
+            WHERE a.attrelid = %(table_oid)s
+            AND a.attnum > 0 AND NOT a.attisdropped
+            ORDER BY a.attnum
+[2022-09-24T09:53:43.421+0000] {log.py:117} INFO - 
+            SELECT a.attname,
+              pg_catalog.format_type(a.atttypid, a.atttypmod),
+              (
+                SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid)
+                FROM pg_catalog.pg_attrdef d
+                WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum
+                AND a.atthasdef
+              ) AS DEFAULT,
+              a.attnotnull,
+              a.attrelid as table_oid,
+              pgd.description as comment,
+              a.attgenerated as generated,
+                              (SELECT json_build_object(
+                    'always', a.attidentity = 'a',
+                    'start', s.seqstart,
+                    'increment', s.seqincrement,
+                    'minvalue', s.seqmin,
+                    'maxvalue', s.seqmax,
+                    'cache', s.seqcache,
+                    'cycle', s.seqcycle)
+                FROM pg_catalog.pg_sequence s
+                JOIN pg_catalog.pg_class c on s.seqrelid = c."oid"
+                WHERE c.relkind = 'S'
+                AND a.attidentity != ''
+                AND s.seqrelid = pg_catalog.pg_get_serial_sequence(
+                    a.attrelid::regclass::text, a.attname
+                )::regclass::oid
+                ) as identity_options                
+            FROM pg_catalog.pg_attribute a
+            LEFT JOIN pg_catalog.pg_description pgd ON (
+                pgd.objoid = a.attrelid AND pgd.objsubid = a.attnum)
+            WHERE a.attrelid = %(table_oid)s
+            AND a.attnum > 0 AND NOT a.attisdropped
+            ORDER BY a.attnum
+        
+[2022-09-24T09:53:43.422+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,422 INFO sqlalchemy.engine.Engine [generated in 0.00050s] {'table_oid': 16983}
+[2022-09-24T09:53:43.422+0000] {log.py:117} INFO - [generated in 0.00050s] {'table_oid': 16983}
+[2022-09-24T09:53:43.425+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,425 INFO sqlalchemy.engine.Engine 
+            SELECT t.typname as "name",
+               pg_catalog.format_type(t.typbasetype, t.typtypmod) as "attype",
+               not t.typnotnull as "nullable",
+               t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema"
+            FROM pg_catalog.pg_type t
+               LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+            WHERE t.typtype = 'd'
+[2022-09-24T09:53:43.425+0000] {log.py:117} INFO - 
+            SELECT t.typname as "name",
+               pg_catalog.format_type(t.typbasetype, t.typtypmod) as "attype",
+               not t.typnotnull as "nullable",
+               t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema"
+            FROM pg_catalog.pg_type t
+               LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+            WHERE t.typtype = 'd'
+        
+[2022-09-24T09:53:43.426+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,426 INFO sqlalchemy.engine.Engine [generated in 0.00052s] {}
+[2022-09-24T09:53:43.426+0000] {log.py:117} INFO - [generated in 0.00052s] {}
+[2022-09-24T09:53:43.428+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,428 INFO sqlalchemy.engine.Engine 
+            SELECT t.typname as "name",
+               -- no enum defaults in 8.4 at least
+               -- t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema",
+               e.enumlabel as "label"
+            FROM pg_catalog.pg_type t
+                 LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+                 LEFT JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
+            WHERE t.typtype = 'e'
+        ORDER BY "schema", "name", e.oid
+[2022-09-24T09:53:43.428+0000] {log.py:117} INFO - 
+            SELECT t.typname as "name",
+               -- no enum defaults in 8.4 at least
+               -- t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema",
+               e.enumlabel as "label"
+            FROM pg_catalog.pg_type t
+                 LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+                 LEFT JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
+            WHERE t.typtype = 'e'
+        ORDER BY "schema", "name", e.oid
+[2022-09-24T09:53:43.428+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,428 INFO sqlalchemy.engine.Engine [generated in 0.00068s] {}
+[2022-09-24T09:53:43.428+0000] {log.py:117} INFO - [generated in 0.00068s] {}
+[2022-09-24T09:53:43.432+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,432 INFO sqlalchemy.engine.Engine 
+                SELECT a.attname
+                FROM pg_attribute a JOIN (
+                    SELECT unnest(ix.indkey) attnum,
+                           generate_subscripts(ix.indkey, 1) ord
+                    FROM pg_index ix
+                    WHERE ix.indrelid = %(table_oid)s AND ix.indisprimary
+                    ) k ON a.attnum=k.attnum
+                WHERE a.attrelid = %(table_oid)s
+                ORDER BY k.ord
+[2022-09-24T09:53:43.432+0000] {log.py:117} INFO - 
+                SELECT a.attname
+                FROM pg_attribute a JOIN (
+                    SELECT unnest(ix.indkey) attnum,
+                           generate_subscripts(ix.indkey, 1) ord
+                    FROM pg_index ix
+                    WHERE ix.indrelid = %(table_oid)s AND ix.indisprimary
+                    ) k ON a.attnum=k.attnum
+                WHERE a.attrelid = %(table_oid)s
+                ORDER BY k.ord
+            
+[2022-09-24T09:53:43.433+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,433 INFO sqlalchemy.engine.Engine [generated in 0.00054s] {'table_oid': 16983}
+[2022-09-24T09:53:43.433+0000] {log.py:117} INFO - [generated in 0.00054s] {'table_oid': 16983}
+[2022-09-24T09:53:43.435+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,435 INFO sqlalchemy.engine.Engine 
+        SELECT conname
+           FROM  pg_catalog.pg_constraint r
+           WHERE r.conrelid = %(table_oid)s AND r.contype = 'p'
+           ORDER BY 1
+[2022-09-24T09:53:43.435+0000] {log.py:117} INFO - 
+        SELECT conname
+           FROM  pg_catalog.pg_constraint r
+           WHERE r.conrelid = %(table_oid)s AND r.contype = 'p'
+           ORDER BY 1
+        
+[2022-09-24T09:53:43.435+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,435 INFO sqlalchemy.engine.Engine [generated in 0.00046s] {'table_oid': 16983}
+[2022-09-24T09:53:43.435+0000] {log.py:117} INFO - [generated in 0.00046s] {'table_oid': 16983}
+[2022-09-24T09:53:43.437+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,437 INFO sqlalchemy.engine.Engine 
+          SELECT r.conname,
+                pg_catalog.pg_get_constraintdef(r.oid, true) as condef,
+                n.nspname as conschema
+          FROM  pg_catalog.pg_constraint r,
+                pg_namespace n,
+                pg_class c
+
+          WHERE r.conrelid = %(table)s AND
+                r.contype = 'f' AND
+                c.oid = confrelid AND
+                n.oid = c.relnamespace
+          ORDER BY 1
+[2022-09-24T09:53:43.437+0000] {log.py:117} INFO - 
+          SELECT r.conname,
+                pg_catalog.pg_get_constraintdef(r.oid, true) as condef,
+                n.nspname as conschema
+          FROM  pg_catalog.pg_constraint r,
+                pg_namespace n,
+                pg_class c
+
+          WHERE r.conrelid = %(table)s AND
+                r.contype = 'f' AND
+                c.oid = confrelid AND
+                n.oid = c.relnamespace
+          ORDER BY 1
+        
+[2022-09-24T09:53:43.437+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,437 INFO sqlalchemy.engine.Engine [generated in 0.00047s] {'table': 16983}
+[2022-09-24T09:53:43.437+0000] {log.py:117} INFO - [generated in 0.00047s] {'table': 16983}
+[2022-09-24T09:53:43.439+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,439 INFO sqlalchemy.engine.Engine 
+              SELECT
+                  i.relname as relname,
+                  ix.indisunique, ix.indexprs,
+                  a.attname, a.attnum, c.conrelid, ix.indkey::varchar,
+                  ix.indoption::varchar, i.reloptions, am.amname,
+                  pg_get_expr(ix.indpred, ix.indrelid),
+                  ix.indnkeyatts as indnkeyatts
+              FROM
+                  pg_class t
+                        join pg_index ix on t.oid = ix.indrelid
+                        join pg_class i on i.oid = ix.indexrelid
+                        left outer join
+                            pg_attribute a
+                            on t.oid = a.attrelid and a.attnum = ANY(ix.indkey)
+                        left outer join
+                            pg_constraint c
+                            on (ix.indrelid = c.conrelid and
+                                ix.indexrelid = c.conindid and
+                                c.contype in ('p', 'u', 'x'))
+                        left outer join
+                            pg_am am
+                            on i.relam = am.oid
+              WHERE
+                  t.relkind IN ('r', 'v', 'f', 'm', 'p')
+                  and t.oid = %(table_oid)s
+                  and ix.indisprimary = 'f'
+              ORDER BY
+                  t.relname,
+                  i.relname
+[2022-09-24T09:53:43.439+0000] {log.py:117} INFO - 
+              SELECT
+                  i.relname as relname,
+                  ix.indisunique, ix.indexprs,
+                  a.attname, a.attnum, c.conrelid, ix.indkey::varchar,
+                  ix.indoption::varchar, i.reloptions, am.amname,
+                  pg_get_expr(ix.indpred, ix.indrelid),
+                  ix.indnkeyatts as indnkeyatts
+              FROM
+                  pg_class t
+                        join pg_index ix on t.oid = ix.indrelid
+                        join pg_class i on i.oid = ix.indexrelid
+                        left outer join
+                            pg_attribute a
+                            on t.oid = a.attrelid and a.attnum = ANY(ix.indkey)
+                        left outer join
+                            pg_constraint c
+                            on (ix.indrelid = c.conrelid and
+                                ix.indexrelid = c.conindid and
+                                c.contype in ('p', 'u', 'x'))
+                        left outer join
+                            pg_am am
+                            on i.relam = am.oid
+              WHERE
+                  t.relkind IN ('r', 'v', 'f', 'm', 'p')
+                  and t.oid = %(table_oid)s
+                  and ix.indisprimary = 'f'
+              ORDER BY
+                  t.relname,
+                  i.relname
+            
+[2022-09-24T09:53:43.440+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,440 INFO sqlalchemy.engine.Engine [generated in 0.00051s] {'table_oid': 16983}
+[2022-09-24T09:53:43.440+0000] {log.py:117} INFO - [generated in 0.00051s] {'table_oid': 16983}
+[2022-09-24T09:53:43.443+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,443 INFO sqlalchemy.engine.Engine 
+            SELECT
+                cons.conname as name,
+                cons.conkey as key,
+                a.attnum as col_num,
+                a.attname as col_name
+            FROM
+                pg_catalog.pg_constraint cons
+                join pg_attribute a
+                  on cons.conrelid = a.attrelid AND
+                    a.attnum = ANY(cons.conkey)
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'u'
+[2022-09-24T09:53:43.443+0000] {log.py:117} INFO - 
+            SELECT
+                cons.conname as name,
+                cons.conkey as key,
+                a.attnum as col_num,
+                a.attname as col_name
+            FROM
+                pg_catalog.pg_constraint cons
+                join pg_attribute a
+                  on cons.conrelid = a.attrelid AND
+                    a.attnum = ANY(cons.conkey)
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'u'
+        
+[2022-09-24T09:53:43.444+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,444 INFO sqlalchemy.engine.Engine [generated in 0.00055s] {'table_oid': 16983}
+[2022-09-24T09:53:43.444+0000] {log.py:117} INFO - [generated in 0.00055s] {'table_oid': 16983}
+[2022-09-24T09:53:43.446+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,446 INFO sqlalchemy.engine.Engine 
+            SELECT
+                cons.conname as name,
+                pg_get_constraintdef(cons.oid) as src
+            FROM
+                pg_catalog.pg_constraint cons
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'c'
+[2022-09-24T09:53:43.446+0000] {log.py:117} INFO - 
+            SELECT
+                cons.conname as name,
+                pg_get_constraintdef(cons.oid) as src
+            FROM
+                pg_catalog.pg_constraint cons
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'c'
+        
+[2022-09-24T09:53:43.446+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,446 INFO sqlalchemy.engine.Engine [generated in 0.00053s] {'table_oid': 16983}
+[2022-09-24T09:53:43.446+0000] {log.py:117} INFO - [generated in 0.00053s] {'table_oid': 16983}
+[2022-09-24T09:53:43.447+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,447 INFO sqlalchemy.engine.Engine 
+            SELECT
+                pgd.description as table_comment
+            FROM
+                pg_catalog.pg_description pgd
+            WHERE
+                pgd.objsubid = 0 AND
+                pgd.objoid = %(table_oid)s
+[2022-09-24T09:53:43.447+0000] {log.py:117} INFO - 
+            SELECT
+                pgd.description as table_comment
+            FROM
+                pg_catalog.pg_description pgd
+            WHERE
+                pgd.objsubid = 0 AND
+                pgd.objoid = %(table_oid)s
+        
+[2022-09-24T09:53:43.448+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,448 INFO sqlalchemy.engine.Engine [generated in 0.00046s] {'table_oid': 16983}
+[2022-09-24T09:53:43.448+0000] {log.py:117} INFO - [generated in 0.00046s] {'table_oid': 16983}
+[2022-09-24T09:53:43.449+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,448 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-24T09:53:43.448+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-24T09:53:43.449+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,449 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T09:53:43.449+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T09:53:43.450+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,450 INFO sqlalchemy.engine.Engine 
+DROP TABLE traffic_data
+[2022-09-24T09:53:43.450+0000] {log.py:117} INFO - 
+DROP TABLE traffic_data
+[2022-09-24T09:53:43.450+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,450 INFO sqlalchemy.engine.Engine [no key 0.00038s] {}
+[2022-09-24T09:53:43.450+0000] {log.py:117} INFO - [no key 0.00038s] {}
+[2022-09-24T09:53:43.456+0000] {logging_mixin.py:117} INFO - 2022-09-24 09:53:43,456 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-24T09:53:43.456+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-24T09:53:43.457+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: table "traffic_data" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/migrate.py", line 40, in migrate_data
+    df.to_sql(db_table, con=engine, if_exists='replace',index_label='id')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1758, in to_sql
+    dtype=dtype,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1650, in prep_table
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 860, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1810, in drop_table
+    self.get_table(table_name, schema).drop()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/schema.py", line 967, in drop
+    bind._run_ddl_visitor(ddl.SchemaDropper, self, checkfirst=checkfirst)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/future/engine.py", line 342, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2113, in _run_ddl_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 524, in traverse_single
+    return meth(obj, **kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 1097, in visit_table
+    self.connection.execute(DropTable(table))
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/future/engine.py", line 281, in execute
+    statement, parameters, execution_options or NO_OPTIONS
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 78, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1387, in _execute_ddl
+    compiled,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) table "traffic_data" does not exist
+
+[SQL: 
+DROP TABLE traffic_data]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2022-09-24T09:53:43.487+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=migrate_data, task_id=migrate, execution_date=20220924T094834, start_date=20220924T095342, end_date=20220924T095343
+[2022-09-24T09:53:43.515+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2022-09-24T09:53:43.516+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T09:53:43.516+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T09:53:43.529+0000] {configuration.py:569} WARNING - section/key [smtp/smtp_user] not found in config
+[2022-09-24T09:53:43.529+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2022-09-24T09:53:43.530+0000] {taskinstance.py:1914} ERROR - Failed to send email to: ['isaaclucky88@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: table "traffic_data" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1457, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1603, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1664, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/migrate.py", line 40, in migrate_data
+    df.to_sql(db_table, con=engine, if_exists='replace',index_label='id')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1758, in to_sql
+    dtype=dtype,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1650, in prep_table
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 860, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1810, in drop_table
+    self.get_table(table_name, schema).drop()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/schema.py", line 967, in drop
+    bind._run_ddl_visitor(ddl.SchemaDropper, self, checkfirst=checkfirst)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/future/engine.py", line 342, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2113, in _run_ddl_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 524, in traverse_single
+    return meth(obj, **kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 1097, in visit_table
+    self.connection.execute(DropTable(table))
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/future/engine.py", line 281, in execute
+    statement, parameters, execution_options or NO_OPTIONS
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 78, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1387, in _execute_ddl
+    compiled,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) table "traffic_data" does not exist
+
+[SQL: 
+DROP TABLE traffic_data]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2311, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1912, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2313, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2022-09-24T09:53:43.549+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 13 for task migrate ((psycopg2.errors.UndefinedTable) table "traffic_data" does not exist
+
+[SQL: 
+DROP TABLE traffic_data]
+(Background on this error at: https://sqlalche.me/e/14/f405); 344)
+[2022-09-24T09:53:43.598+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T09:53:43.637+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

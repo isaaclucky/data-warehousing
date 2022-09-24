@@ -1,0 +1,101 @@
+[2022-09-24T13:13:55.055+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T13:08:08.634693+00:00 [queued]>
+[2022-09-24T13:13:55.067+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-24T13:08:08.634693+00:00 [queued]>
+[2022-09-24T13:13:55.067+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:13:55.067+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2022-09-24T13:13:55.067+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:13:55.079+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): migrate> on 2022-09-24 13:08:08.634693+00:00
+[2022-09-24T13:13:55.085+0000] {standard_task_runner.py:54} INFO - Started process 609 to run task
+[2022-09-24T13:13:55.087+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'migrate', 'manual__2022-09-24T13:08:08.634693+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpk12tect7']
+[2022-09-24T13:13:55.087+0000] {standard_task_runner.py:83} INFO - Job 9: Subtask migrate
+[2022-09-24T13:13:55.088+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T13:13:55.798+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.migrate manual__2022-09-24T13:08:08.634693+00:00 [running]> on host 98fc00a9fd6d
+[2022-09-24T13:13:55.862+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=migrate
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T13:08:08.634693+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-24T13:08:08.634693+00:00
+[2022-09-24T13:13:55.863+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
+  return func(*args, **kwargs)
+
+[2022-09-24T13:13:55.872+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py:586: ParserWarning: Length of header or names does not match length of data. This leads to a loss of data with index_col=False.
+  return _read(filepath_or_buffer, kwds)
+
+[2022-09-24T13:13:55.882+0000] {logging_mixin.py:117} INFO - <<<<<<<<<<start migrating data>>>>>>>>>>>>>>
+[2022-09-24T13:13:55.888+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,888 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+[2022-09-24T13:13:55.888+0000] {log.py:117} INFO - select pg_catalog.version()
+[2022-09-24T13:13:55.889+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,889 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T13:13:55.889+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T13:13:55.889+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,889 INFO sqlalchemy.engine.Engine select current_schema()
+[2022-09-24T13:13:55.889+0000] {log.py:117} INFO - select current_schema()
+[2022-09-24T13:13:55.889+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,889 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T13:13:55.889+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T13:13:55.890+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,890 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+[2022-09-24T13:13:55.890+0000] {log.py:117} INFO - show standard_conforming_strings
+[2022-09-24T13:13:55.890+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,890 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-24T13:13:55.890+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-24T13:13:55.892+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,892 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T13:13:55.892+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T13:13:55.892+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,892 INFO sqlalchemy.engine.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T13:13:55.892+0000] {log.py:117} INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-24T13:13:55.892+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,892 INFO sqlalchemy.engine.Engine [generated in 0.00047s] {'name': 'traffic_data'}
+[2022-09-24T13:13:55.892+0000] {log.py:117} INFO - [generated in 0.00047s] {'name': 'traffic_data'}
+[2022-09-24T13:13:55.893+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,893 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-24T13:13:55.893+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-24T13:13:55.895+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,895 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T13:13:55.895+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T13:13:55.896+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,896 INFO sqlalchemy.engine.Engine 
+CREATE TABLE traffic_data (
+	id BIGINT, 
+	track_id BIGINT, 
+	" type" TEXT, 
+	" traveled_d" FLOAT(53), 
+	" avg_speed" FLOAT(53), 
+	" lat" FLOAT(53), 
+	" lon" FLOAT(53), 
+	" speed" FLOAT(53), 
+	" lon_acc" FLOAT(53), 
+	" lat_acc" FLOAT(53), 
+	" time" FLOAT(53)
+)
+[2022-09-24T13:13:55.896+0000] {log.py:117} INFO - 
+CREATE TABLE traffic_data (
+	id BIGINT, 
+	track_id BIGINT, 
+	" type" TEXT, 
+	" traveled_d" FLOAT(53), 
+	" avg_speed" FLOAT(53), 
+	" lat" FLOAT(53), 
+	" lon" FLOAT(53), 
+	" speed" FLOAT(53), 
+	" lon_acc" FLOAT(53), 
+	" lat_acc" FLOAT(53), 
+	" time" FLOAT(53)
+)
+
+
+[2022-09-24T13:13:55.896+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,896 INFO sqlalchemy.engine.Engine [no key 0.00022s] {}
+[2022-09-24T13:13:55.896+0000] {log.py:117} INFO - [no key 0.00022s] {}
+[2022-09-24T13:13:55.902+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,902 INFO sqlalchemy.engine.Engine CREATE INDEX ix_traffic_data_id ON traffic_data (id)
+[2022-09-24T13:13:55.902+0000] {log.py:117} INFO - CREATE INDEX ix_traffic_data_id ON traffic_data (id)
+[2022-09-24T13:13:55.902+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,902 INFO sqlalchemy.engine.Engine [no key 0.00025s] {}
+[2022-09-24T13:13:55.902+0000] {log.py:117} INFO - [no key 0.00025s] {}
+[2022-09-24T13:13:55.904+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,904 INFO sqlalchemy.engine.Engine COMMIT
+[2022-09-24T13:13:55.904+0000] {log.py:117} INFO - COMMIT
+[2022-09-24T13:13:55.912+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,912 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-24T13:13:55.912+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-24T13:13:55.913+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,913 INFO sqlalchemy.engine.Engine INSERT INTO traffic_data (id, track_id, " type", " traveled_d", " avg_speed", " lat", " lon", " speed", " lon_acc", " lat_acc", " time") VALUES (%(id)s, %(track_id)s, %( type)s, %( traveled_d)s, %( avg_speed)s, %( lat)s, %( lon)s, %( speed)s, %( lon_acc)s, %( lat_acc)s, %( time)s)
+[2022-09-24T13:13:55.913+0000] {log.py:117} INFO - INSERT INTO traffic_data (id, track_id, " type", " traveled_d", " avg_speed", " lat", " lon", " speed", " lon_acc", " lat_acc", " time") VALUES (%(id)s, %(track_id)s, %( type)s, %( traveled_d)s, %( avg_speed)s, %( lat)s, %( lon)s, %( speed)s, %( lon_acc)s, %( lat_acc)s, %( time)s)
+[2022-09-24T13:13:55.914+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,913 INFO sqlalchemy.engine.Engine [generated in 0.00054s] ({'id': 0, 'track_id': 1, ' type': ' Car', ' traveled_d': 48.85, ' avg_speed': 9.770344, ' lat': 37.977391, ' lon': 23.737688, ' speed': 4.9178, ' lon_acc': 0.0518, ' lat_acc': -0.0299, ' time': 0.0}, {'id': 1, 'track_id': 2, ' type': ' Motorcycle', ' traveled_d': 98.09, ' avg_speed': 19.839417, ' lat': 37.977642, ' lon': 23.7374, ' speed': 16.9759, ' lon_acc': -0.0361, ' lat_acc': -0.0228, ' time': 0.0}, {'id': 2, 'track_id': 3, ' type': ' Motorcycle', ' traveled_d': 63.8, ' avg_speed': 18.228752, ' lat': 37.977997, ' lon': 23.737264, ' speed': 20.1906, ' lon_acc': -0.0795, ' lat_acc': -0.3395, ' time': 0.0}, {'id': 3, 'track_id': 4, ' type': ' Motorcycle', ' traveled_d': 145.72, ' avg_speed': 26.229014, ' lat': 37.978135, ' lon': 23.737072, ' speed': 2.7555, ' lon_acc': -0.0302, ' lat_acc': 0.0948, ' time': 0.0}, {'id': 4, 'track_id': 5, ' type': ' Motorcycle', ' traveled_d': 138.01, ' avg_speed': 24.841425, ' lat': 37.978134, ' lon': 23.737103, ' speed': 0.0, ' lon_acc': 0.0, ' lat_acc': 0.0, ' time': 0.0})
+[2022-09-24T13:13:55.913+0000] {log.py:117} INFO - [generated in 0.00054s] ({'id': 0, 'track_id': 1, ' type': ' Car', ' traveled_d': 48.85, ' avg_speed': 9.770344, ' lat': 37.977391, ' lon': 23.737688, ' speed': 4.9178, ' lon_acc': 0.0518, ' lat_acc': -0.0299, ' time': 0.0}, {'id': 1, 'track_id': 2, ' type': ' Motorcycle', ' traveled_d': 98.09, ' avg_speed': 19.839417, ' lat': 37.977642, ' lon': 23.7374, ' speed': 16.9759, ' lon_acc': -0.0361, ' lat_acc': -0.0228, ' time': 0.0}, {'id': 2, 'track_id': 3, ' type': ' Motorcycle', ' traveled_d': 63.8, ' avg_speed': 18.228752, ' lat': 37.977997, ' lon': 23.737264, ' speed': 20.1906, ' lon_acc': -0.0795, ' lat_acc': -0.3395, ' time': 0.0}, {'id': 3, 'track_id': 4, ' type': ' Motorcycle', ' traveled_d': 145.72, ' avg_speed': 26.229014, ' lat': 37.978135, ' lon': 23.737072, ' speed': 2.7555, ' lon_acc': -0.0302, ' lat_acc': 0.0948, ' time': 0.0}, {'id': 4, 'track_id': 5, ' type': ' Motorcycle', ' traveled_d': 138.01, ' avg_speed': 24.841425, ' lat': 37.978134, ' lon': 23.737103, ' speed': 0.0, ' lon_acc': 0.0, ' lat_acc': 0.0, ' time': 0.0})
+[2022-09-24T13:13:55.915+0000] {logging_mixin.py:117} INFO - 2022-09-24 13:13:55,915 INFO sqlalchemy.engine.Engine COMMIT
+[2022-09-24T13:13:55.915+0000] {log.py:117} INFO - COMMIT
+[2022-09-24T13:13:55.916+0000] {logging_mixin.py:117} INFO - <<<<<<<<<<<<<<<<<<<completed>>>>>>>>>>>>>>>>
+[2022-09-24T13:13:55.916+0000] {python.py:177} INFO - Done. Returned value was: None
+[2022-09-24T13:13:55.925+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=migrate_data, task_id=migrate, execution_date=20220924T130808, start_date=20220924T131355, end_date=20220924T131355
+[2022-09-24T13:13:55.980+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-09-24T13:13:55.996+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

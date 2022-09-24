@@ -1,3 +1,5 @@
 dbt-postgres
 dbt-rpc
 markupsafe
+psycopg2
+sqlalchemy

@@ -1,0 +1,13 @@
+dbt-postgres:
+  target: dev
+  outputs:
+    dev:
+      type: postgresql
+      host: localhost
+      user: airflow
+      password: airflow
+      port: 5434
+      dbname: airflow
+      schema: public
+      threads: 3
+      keepalives_idle: 0 # default 0, indicating the system default

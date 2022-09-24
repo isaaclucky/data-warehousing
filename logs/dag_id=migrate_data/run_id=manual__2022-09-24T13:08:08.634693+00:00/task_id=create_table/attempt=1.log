@@ -1,0 +1,39 @@
+[2022-09-24T13:08:10.959+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table manual__2022-09-24T13:08:08.634693+00:00 [queued]>
+[2022-09-24T13:08:11.002+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.create_table manual__2022-09-24T13:08:08.634693+00:00 [queued]>
+[2022-09-24T13:08:11.003+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:08:11.003+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-24T13:08:11.003+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-24T13:08:11.051+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_table> on 2022-09-24 13:08:08.634693+00:00
+[2022-09-24T13:08:11.074+0000] {standard_task_runner.py:54} INFO - Started process 378 to run task
+[2022-09-24T13:08:11.085+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'create_table', 'manual__2022-09-24T13:08:08.634693+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpw7v08cyh']
+[2022-09-24T13:08:11.086+0000] {standard_task_runner.py:83} INFO - Job 8: Subtask create_table
+[2022-09-24T13:08:11.089+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-24T13:08:43.861+0000] {timeout.py:68} ERROR - Process timed out, PID: 378
+[2022-09-24T13:08:43.864+0000] {dagbag.py:330} ERROR - Failed to import: /opt/***/dags/migrate.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/migrate.py", line 3, in <module>
+    import pandas as pd
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/__init__.py", line 22, in <module>
+    from pandas.compat import (
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/compat/__init__.py", line 23, in <module>
+    from pandas.compat.pyarrow import (
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/compat/pyarrow.py", line 6, in <module>
+    import pyarrow as pa
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyarrow/__init__.py", line 63, in <module>
+    import pyarrow.lib as _lib
+  File "<frozen importlib._bootstrap>", line 416, in parent
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/***/dags/migrate.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#top-level-python-code
+* https://***.apache.org/docs/apache-***/2.4.0/best-practices.html#reducing-dag-complexity, PID: 378
+[2022-09-24T13:08:43.898+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 8 for task create_table (Dag 'migrate_data' could not be found; either it does not exist or it failed to parse.; 378)
+[2022-09-24T13:08:43.929+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-24T13:08:43.978+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
