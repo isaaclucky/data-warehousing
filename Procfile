@@ -1,0 +1,1 @@
+web: sh setup.sh && cd migrate_to_dbt && dbt docs serve 
