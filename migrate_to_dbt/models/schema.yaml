@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: traffic_data_view
-    description: Database description
+    description: Transformation of the city traffic taken by drone 1 on 8:30 - 9:00
     database: airflow
     schema: public
     tables:
@@ -10,12 +10,20 @@ sources:
         columns:
           - name: id 
             description: unique identifier for the vehicle
+            tests:
+              - not_null
+              - unique
           - name: track_id
             description: id of the track the vehicle is on
-          - name: vehicle_type
+            tests:
+              - not_null
+          - name: type
             description: type of the vehicle
+            test:
+              - not_null
           - name: traveled_d
             description: distance traveled by the vehicle
+              - not_null
           - name: avg_speed
             description: average speed of the vehicle
           - name: lat

@@ -1,0 +1,26 @@
+[2022-09-25T12:39:23.515+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate scheduled__2022-09-24T00:00:00+00:00 [queued]>
+[2022-09-25T12:39:23.524+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate scheduled__2022-09-24T00:00:00+00:00 [queued]>
+[2022-09-25T12:39:23.524+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T12:39:23.524+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2022-09-25T12:39:23.524+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T12:39:23.535+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): migrate> on 2022-09-24 00:00:00+00:00
+[2022-09-25T12:39:23.539+0000] {standard_task_runner.py:54} INFO - Started process 538 to run task
+[2022-09-25T12:39:23.541+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'migrate', 'scheduled__2022-09-24T00:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmpyqth_q0f']
+[2022-09-25T12:39:23.542+0000] {standard_task_runner.py:83} INFO - Job 46: Subtask migrate
+[2022-09-25T12:39:23.542+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-25T12:39:23.914+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.migrate scheduled__2022-09-24T00:00:00+00:00 [running]> on host c138e22c1d18
+[2022-09-25T12:39:23.968+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=migrate
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-24T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-24T00:00:00+00:00
+[2022-09-25T12:39:23.970+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
+  return func(*args, **kwargs)
+
+[2022-09-25T12:39:31.166+0000] {local_task_job.py:164} INFO - Task exited with return code Negsignal.SIGKILL
+[2022-09-25T12:39:31.216+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

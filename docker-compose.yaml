@@ -80,36 +80,6 @@ x-airflow-common:
     #   condition: service_healthy
 
 services:
-# # sdvsd
-#   database:
-#     image: postgres
-#     environment:
-#       POSTGRES_USER: "root"
-#       POSTGRES_PASSWORD: "password"
-#       POSTGRES_DB: "dbt"
-#     ports:
-#       - "5432:5432"
-
-#   test:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile.test
-#       args:
-#         # Run `make .env` to set $USER_ID and $GROUP_ID
-#         USER_ID: ${USER_ID:-}
-#         GROUP_ID: ${GROUP_ID:-}
-#     command: "/root/.virtualenvs/dbt/bin/pytest"
-#     environment:
-#       POSTGRES_TEST_HOST: "database"
-#     volumes:
-#       - .:/usr/app
-#     working_dir: /usr/app
-#     depends_on:
-#       - database
-
-# # networks:
-# #   default:
-# #     name: dbt-net
   postgres:
     image: postgres:13
     environment:
@@ -136,43 +106,11 @@ services:
       timeout: 30s
       retries: 50
     restart: always
-  dbt-server:
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    command: [ "dbt-rpc", "serve" ]
-    env_file: .env
-    environment:
-      - DBT_ENABLE_LEGACY_LOGGER=True
-    ports:
-      - '8581:8580'
-    volumes:
-      - ./migrate_to_dbt:/app
-
-    depends_on:
-      - postgres
-
-    # volumes:
-    #   - ./migrate_to_dbt:/app
-      # - ./data/:/app/data/
-  dbt-console:
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    command: [ "/bin/bash", "dbt","run"]
-
-    env_file: .env
-    stdin_open: true
-    tty: true
-    depends_on:
-      - postgres
-    ports:
-      - '8001:8001'
-    volumes:
-      - ./migrate_to_dbt:/app
   airflow-webserver:
     <<: *airflow-common
     command: webserver
+    env_file:
+      - .env
     ports:
       - 8080:8080
     healthcheck:
@@ -189,6 +127,8 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
       interval: 10s
@@ -237,9 +177,11 @@ services:
 
   airflow-init:
     <<: *airflow-common
+    env_file:
+      - .env
     entrypoint: /bin/bash
     # yamllint disable rule:line-length
-    command:
+    command: 
       - -c
       - |
         function ver() {
