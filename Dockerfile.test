@@ -23,7 +23,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy dbt profile
-# COPY profiles.yaml /root/.dbt/profiles.yaml
+COPY ./profiles.yaml /root/.dbt/profiles.yaml
 
 # Copy source code
 COPY ./migrate_to_dbt /app

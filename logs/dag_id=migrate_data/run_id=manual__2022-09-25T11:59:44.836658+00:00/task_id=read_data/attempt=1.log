@@ -1,0 +1,27 @@
+[2022-09-25T12:00:47.985+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.read_data manual__2022-09-25T11:59:44.836658+00:00 [queued]>
+[2022-09-25T12:00:47.999+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.read_data manual__2022-09-25T11:59:44.836658+00:00 [queued]>
+[2022-09-25T12:00:48.000+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T12:00:48.000+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-25T12:00:48.000+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T12:00:48.016+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): read_data> on 2022-09-25 11:59:44.836658+00:00
+[2022-09-25T12:00:48.022+0000] {standard_task_runner.py:54} INFO - Started process 2951 to run task
+[2022-09-25T12:00:48.026+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'read_data', 'manual__2022-09-25T11:59:44.836658+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmptpmb1zm9']
+[2022-09-25T12:00:48.026+0000] {standard_task_runner.py:83} INFO - Job 57: Subtask read_data
+[2022-09-25T12:00:48.027+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-25T12:00:48.527+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.read_data manual__2022-09-25T11:59:44.836658+00:00 [running]> on host 5aeb3e9582c2
+[2022-09-25T12:00:48.606+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=read_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-25T11:59:44.836658+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-25T11:59:44.836658+00:00
+[2022-09-25T12:00:48.618+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2022-09-25T12:00:48.622+0000] {sql.py:315} INFO - Running statement: select * from traffic_data limit 5;, parameters: None
+[2022-09-25T12:00:48.623+0000] {sql.py:324} INFO - Rows affected: 5
+[2022-09-25T12:00:48.633+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=migrate_data, task_id=read_data, execution_date=20220925T115944, start_date=20220925T120047, end_date=20220925T120048
+[2022-09-25T12:00:48.679+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-09-25T12:00:48.710+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

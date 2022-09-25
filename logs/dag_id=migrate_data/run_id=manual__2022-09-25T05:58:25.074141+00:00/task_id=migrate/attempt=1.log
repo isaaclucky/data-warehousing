@@ -1,0 +1,465 @@
+[2022-09-25T05:58:31.620+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-25T05:58:25.074141+00:00 [queued]>
+[2022-09-25T05:58:31.672+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: migrate_data.migrate manual__2022-09-25T05:58:25.074141+00:00 [queued]>
+[2022-09-25T05:58:31.672+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T05:58:31.673+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2022-09-25T05:58:31.673+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-25T05:58:31.738+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): migrate> on 2022-09-25 05:58:25.074141+00:00
+[2022-09-25T05:58:31.761+0000] {standard_task_runner.py:54} INFO - Started process 162 to run task
+[2022-09-25T05:58:31.777+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'migrate_data', 'migrate', 'manual__2022-09-25T05:58:25.074141+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/migrate.py', '--cfg-path', '/tmp/tmprhwzlu6j']
+[2022-09-25T05:58:31.778+0000] {standard_task_runner.py:83} INFO - Job 6: Subtask migrate
+[2022-09-25T05:58:31.780+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/migrate.py
+[2022-09-25T05:58:36.248+0000] {task_command.py:384} INFO - Running <TaskInstance: migrate_data.migrate manual__2022-09-25T05:58:25.074141+00:00 [running]> on host 5aeb3e9582c2
+[2022-09-25T05:58:36.713+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=yishaktadele
+AIRFLOW_CTX_DAG_ID=migrate_data
+AIRFLOW_CTX_TASK_ID=migrate
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-25T05:58:25.074141+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-25T05:58:25.074141+00:00
+[2022-09-25T05:58:36.721+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
+  return func(*args, **kwargs)
+
+[2022-09-25T05:58:36.783+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py:586: ParserWarning: Length of header or names does not match length of data. This leads to a loss of data with index_col=False.
+  return _read(filepath_or_buffer, kwds)
+
+[2022-09-25T05:58:36.838+0000] {logging_mixin.py:117} INFO - <<<<<<<<<<start migrating data>>>>>>>>>>>>>>
+[2022-09-25T05:58:36.896+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,896 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+[2022-09-25T05:58:36.896+0000] {log.py:117} INFO - select pg_catalog.version()
+[2022-09-25T05:58:36.900+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,900 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-25T05:58:36.900+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-25T05:58:36.902+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,902 INFO sqlalchemy.engine.Engine select current_schema()
+[2022-09-25T05:58:36.902+0000] {log.py:117} INFO - select current_schema()
+[2022-09-25T05:58:36.902+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,902 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-25T05:58:36.902+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-25T05:58:36.906+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,906 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+[2022-09-25T05:58:36.906+0000] {log.py:117} INFO - show standard_conforming_strings
+[2022-09-25T05:58:36.907+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,907 INFO sqlalchemy.engine.Engine [raw sql] {}
+[2022-09-25T05:58:36.907+0000] {log.py:117} INFO - [raw sql] {}
+[2022-09-25T05:58:36.911+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,911 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:36.911+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:36.912+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,912 INFO sqlalchemy.engine.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-25T05:58:36.912+0000] {log.py:117} INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-25T05:58:36.912+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,912 INFO sqlalchemy.engine.Engine [generated in 0.00153s] {'name': 'traffic_data'}
+[2022-09-25T05:58:36.912+0000] {log.py:117} INFO - [generated in 0.00153s] {'name': 'traffic_data'}
+[2022-09-25T05:58:36.916+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,915 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-25T05:58:36.915+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-25T05:58:36.917+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,917 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:36.917+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:36.918+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,918 INFO sqlalchemy.engine.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-25T05:58:36.918+0000] {log.py:117} INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+[2022-09-25T05:58:36.919+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,919 INFO sqlalchemy.engine.Engine [cached since 0.007802s ago] {'name': 'traffic_data'}
+[2022-09-25T05:58:36.919+0000] {log.py:117} INFO - [cached since 0.007802s ago] {'name': 'traffic_data'}
+[2022-09-25T05:58:36.921+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,921 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-25T05:58:36.921+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-25T05:58:36.924+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,924 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:36.924+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:36.924+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,924 INFO sqlalchemy.engine.Engine SELECT c.relname FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = %(schema)s AND c.relkind in ('r', 'p')
+[2022-09-25T05:58:36.924+0000] {log.py:117} INFO - SELECT c.relname FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = %(schema)s AND c.relkind in ('r', 'p')
+[2022-09-25T05:58:36.925+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,925 INFO sqlalchemy.engine.Engine [generated in 0.00149s] {'schema': 'public'}
+[2022-09-25T05:58:36.925+0000] {log.py:117} INFO - [generated in 0.00149s] {'schema': 'public'}
+[2022-09-25T05:58:36.929+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,929 INFO sqlalchemy.engine.Engine 
+            SELECT c.oid
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE (pg_catalog.pg_table_is_visible(c.oid))
+            AND c.relname = %(table_name)s AND c.relkind in
+            ('r', 'v', 'm', 'f', 'p')
+[2022-09-25T05:58:36.929+0000] {log.py:117} INFO - 
+            SELECT c.oid
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE (pg_catalog.pg_table_is_visible(c.oid))
+            AND c.relname = %(table_name)s AND c.relkind in
+            ('r', 'v', 'm', 'f', 'p')
+        
+[2022-09-25T05:58:36.930+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,930 INFO sqlalchemy.engine.Engine [generated in 0.00087s] {'table_name': 'traffic_data'}
+[2022-09-25T05:58:36.930+0000] {log.py:117} INFO - [generated in 0.00087s] {'table_name': 'traffic_data'}
+[2022-09-25T05:58:36.934+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,934 INFO sqlalchemy.engine.Engine 
+            SELECT a.attname,
+              pg_catalog.format_type(a.atttypid, a.atttypmod),
+              (
+                SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid)
+                FROM pg_catalog.pg_attrdef d
+                WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum
+                AND a.atthasdef
+              ) AS DEFAULT,
+              a.attnotnull,
+              a.attrelid as table_oid,
+              pgd.description as comment,
+              a.attgenerated as generated,
+                              (SELECT json_build_object(
+                    'always', a.attidentity = 'a',
+                    'start', s.seqstart,
+                    'increment', s.seqincrement,
+                    'minvalue', s.seqmin,
+                    'maxvalue', s.seqmax,
+                    'cache', s.seqcache,
+                    'cycle', s.seqcycle)
+                FROM pg_catalog.pg_sequence s
+                JOIN pg_catalog.pg_class c on s.seqrelid = c."oid"
+                WHERE c.relkind = 'S'
+                AND a.attidentity != ''
+                AND s.seqrelid = pg_catalog.pg_get_serial_sequence(
+                    a.attrelid::regclass::text, a.attname
+                )::regclass::oid
+                ) as identity_options                
+            FROM pg_catalog.pg_attribute a
+            LEFT JOIN pg_catalog.pg_description pgd ON (
+                pgd.objoid = a.attrelid AND pgd.objsubid = a.attnum)
+            WHERE a.attrelid = %(table_oid)s
+            AND a.attnum > 0 AND NOT a.attisdropped
+            ORDER BY a.attnum
+[2022-09-25T05:58:36.934+0000] {log.py:117} INFO - 
+            SELECT a.attname,
+              pg_catalog.format_type(a.atttypid, a.atttypmod),
+              (
+                SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid)
+                FROM pg_catalog.pg_attrdef d
+                WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum
+                AND a.atthasdef
+              ) AS DEFAULT,
+              a.attnotnull,
+              a.attrelid as table_oid,
+              pgd.description as comment,
+              a.attgenerated as generated,
+                              (SELECT json_build_object(
+                    'always', a.attidentity = 'a',
+                    'start', s.seqstart,
+                    'increment', s.seqincrement,
+                    'minvalue', s.seqmin,
+                    'maxvalue', s.seqmax,
+                    'cache', s.seqcache,
+                    'cycle', s.seqcycle)
+                FROM pg_catalog.pg_sequence s
+                JOIN pg_catalog.pg_class c on s.seqrelid = c."oid"
+                WHERE c.relkind = 'S'
+                AND a.attidentity != ''
+                AND s.seqrelid = pg_catalog.pg_get_serial_sequence(
+                    a.attrelid::regclass::text, a.attname
+                )::regclass::oid
+                ) as identity_options                
+            FROM pg_catalog.pg_attribute a
+            LEFT JOIN pg_catalog.pg_description pgd ON (
+                pgd.objoid = a.attrelid AND pgd.objsubid = a.attnum)
+            WHERE a.attrelid = %(table_oid)s
+            AND a.attnum > 0 AND NOT a.attisdropped
+            ORDER BY a.attnum
+        
+[2022-09-25T05:58:36.936+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,935 INFO sqlalchemy.engine.Engine [generated in 0.00162s] {'table_oid': 16978}
+[2022-09-25T05:58:36.935+0000] {log.py:117} INFO - [generated in 0.00162s] {'table_oid': 16978}
+[2022-09-25T05:58:36.944+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,944 INFO sqlalchemy.engine.Engine 
+            SELECT t.typname as "name",
+               pg_catalog.format_type(t.typbasetype, t.typtypmod) as "attype",
+               not t.typnotnull as "nullable",
+               t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema"
+            FROM pg_catalog.pg_type t
+               LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+            WHERE t.typtype = 'd'
+[2022-09-25T05:58:36.944+0000] {log.py:117} INFO - 
+            SELECT t.typname as "name",
+               pg_catalog.format_type(t.typbasetype, t.typtypmod) as "attype",
+               not t.typnotnull as "nullable",
+               t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema"
+            FROM pg_catalog.pg_type t
+               LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+            WHERE t.typtype = 'd'
+        
+[2022-09-25T05:58:36.945+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,945 INFO sqlalchemy.engine.Engine [generated in 0.00083s] {}
+[2022-09-25T05:58:36.945+0000] {log.py:117} INFO - [generated in 0.00083s] {}
+[2022-09-25T05:58:36.951+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,951 INFO sqlalchemy.engine.Engine 
+            SELECT t.typname as "name",
+               -- no enum defaults in 8.4 at least
+               -- t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema",
+               e.enumlabel as "label"
+            FROM pg_catalog.pg_type t
+                 LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+                 LEFT JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
+            WHERE t.typtype = 'e'
+        ORDER BY "schema", "name", e.oid
+[2022-09-25T05:58:36.951+0000] {log.py:117} INFO - 
+            SELECT t.typname as "name",
+               -- no enum defaults in 8.4 at least
+               -- t.typdefault as "default",
+               pg_catalog.pg_type_is_visible(t.oid) as "visible",
+               n.nspname as "schema",
+               e.enumlabel as "label"
+            FROM pg_catalog.pg_type t
+                 LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+                 LEFT JOIN pg_catalog.pg_enum e ON t.oid = e.enumtypid
+            WHERE t.typtype = 'e'
+        ORDER BY "schema", "name", e.oid
+[2022-09-25T05:58:36.952+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,952 INFO sqlalchemy.engine.Engine [generated in 0.00082s] {}
+[2022-09-25T05:58:36.952+0000] {log.py:117} INFO - [generated in 0.00082s] {}
+[2022-09-25T05:58:36.963+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,963 INFO sqlalchemy.engine.Engine 
+                SELECT a.attname
+                FROM pg_attribute a JOIN (
+                    SELECT unnest(ix.indkey) attnum,
+                           generate_subscripts(ix.indkey, 1) ord
+                    FROM pg_index ix
+                    WHERE ix.indrelid = %(table_oid)s AND ix.indisprimary
+                    ) k ON a.attnum=k.attnum
+                WHERE a.attrelid = %(table_oid)s
+                ORDER BY k.ord
+[2022-09-25T05:58:36.963+0000] {log.py:117} INFO - 
+                SELECT a.attname
+                FROM pg_attribute a JOIN (
+                    SELECT unnest(ix.indkey) attnum,
+                           generate_subscripts(ix.indkey, 1) ord
+                    FROM pg_index ix
+                    WHERE ix.indrelid = %(table_oid)s AND ix.indisprimary
+                    ) k ON a.attnum=k.attnum
+                WHERE a.attrelid = %(table_oid)s
+                ORDER BY k.ord
+            
+[2022-09-25T05:58:36.964+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,964 INFO sqlalchemy.engine.Engine [generated in 0.00098s] {'table_oid': 16978}
+[2022-09-25T05:58:36.964+0000] {log.py:117} INFO - [generated in 0.00098s] {'table_oid': 16978}
+[2022-09-25T05:58:36.967+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,967 INFO sqlalchemy.engine.Engine 
+        SELECT conname
+           FROM  pg_catalog.pg_constraint r
+           WHERE r.conrelid = %(table_oid)s AND r.contype = 'p'
+           ORDER BY 1
+[2022-09-25T05:58:36.967+0000] {log.py:117} INFO - 
+        SELECT conname
+           FROM  pg_catalog.pg_constraint r
+           WHERE r.conrelid = %(table_oid)s AND r.contype = 'p'
+           ORDER BY 1
+        
+[2022-09-25T05:58:36.968+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,968 INFO sqlalchemy.engine.Engine [generated in 0.00102s] {'table_oid': 16978}
+[2022-09-25T05:58:36.968+0000] {log.py:117} INFO - [generated in 0.00102s] {'table_oid': 16978}
+[2022-09-25T05:58:36.987+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,987 INFO sqlalchemy.engine.Engine 
+          SELECT r.conname,
+                pg_catalog.pg_get_constraintdef(r.oid, true) as condef,
+                n.nspname as conschema
+          FROM  pg_catalog.pg_constraint r,
+                pg_namespace n,
+                pg_class c
+
+          WHERE r.conrelid = %(table)s AND
+                r.contype = 'f' AND
+                c.oid = confrelid AND
+                n.oid = c.relnamespace
+          ORDER BY 1
+[2022-09-25T05:58:36.987+0000] {log.py:117} INFO - 
+          SELECT r.conname,
+                pg_catalog.pg_get_constraintdef(r.oid, true) as condef,
+                n.nspname as conschema
+          FROM  pg_catalog.pg_constraint r,
+                pg_namespace n,
+                pg_class c
+
+          WHERE r.conrelid = %(table)s AND
+                r.contype = 'f' AND
+                c.oid = confrelid AND
+                n.oid = c.relnamespace
+          ORDER BY 1
+        
+[2022-09-25T05:58:36.988+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,988 INFO sqlalchemy.engine.Engine [generated in 0.00089s] {'table': 16978}
+[2022-09-25T05:58:36.988+0000] {log.py:117} INFO - [generated in 0.00089s] {'table': 16978}
+[2022-09-25T05:58:36.994+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,994 INFO sqlalchemy.engine.Engine 
+              SELECT
+                  i.relname as relname,
+                  ix.indisunique, ix.indexprs,
+                  a.attname, a.attnum, c.conrelid, ix.indkey::varchar,
+                  ix.indoption::varchar, i.reloptions, am.amname,
+                  pg_get_expr(ix.indpred, ix.indrelid),
+                  ix.indnkeyatts as indnkeyatts
+              FROM
+                  pg_class t
+                        join pg_index ix on t.oid = ix.indrelid
+                        join pg_class i on i.oid = ix.indexrelid
+                        left outer join
+                            pg_attribute a
+                            on t.oid = a.attrelid and a.attnum = ANY(ix.indkey)
+                        left outer join
+                            pg_constraint c
+                            on (ix.indrelid = c.conrelid and
+                                ix.indexrelid = c.conindid and
+                                c.contype in ('p', 'u', 'x'))
+                        left outer join
+                            pg_am am
+                            on i.relam = am.oid
+              WHERE
+                  t.relkind IN ('r', 'v', 'f', 'm', 'p')
+                  and t.oid = %(table_oid)s
+                  and ix.indisprimary = 'f'
+              ORDER BY
+                  t.relname,
+                  i.relname
+[2022-09-25T05:58:36.994+0000] {log.py:117} INFO - 
+              SELECT
+                  i.relname as relname,
+                  ix.indisunique, ix.indexprs,
+                  a.attname, a.attnum, c.conrelid, ix.indkey::varchar,
+                  ix.indoption::varchar, i.reloptions, am.amname,
+                  pg_get_expr(ix.indpred, ix.indrelid),
+                  ix.indnkeyatts as indnkeyatts
+              FROM
+                  pg_class t
+                        join pg_index ix on t.oid = ix.indrelid
+                        join pg_class i on i.oid = ix.indexrelid
+                        left outer join
+                            pg_attribute a
+                            on t.oid = a.attrelid and a.attnum = ANY(ix.indkey)
+                        left outer join
+                            pg_constraint c
+                            on (ix.indrelid = c.conrelid and
+                                ix.indexrelid = c.conindid and
+                                c.contype in ('p', 'u', 'x'))
+                        left outer join
+                            pg_am am
+                            on i.relam = am.oid
+              WHERE
+                  t.relkind IN ('r', 'v', 'f', 'm', 'p')
+                  and t.oid = %(table_oid)s
+                  and ix.indisprimary = 'f'
+              ORDER BY
+                  t.relname,
+                  i.relname
+            
+[2022-09-25T05:58:36.995+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:36,995 INFO sqlalchemy.engine.Engine [generated in 0.00106s] {'table_oid': 16978}
+[2022-09-25T05:58:36.995+0000] {log.py:117} INFO - [generated in 0.00106s] {'table_oid': 16978}
+[2022-09-25T05:58:37.013+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,013 INFO sqlalchemy.engine.Engine 
+            SELECT
+                cons.conname as name,
+                cons.conkey as key,
+                a.attnum as col_num,
+                a.attname as col_name
+            FROM
+                pg_catalog.pg_constraint cons
+                join pg_attribute a
+                  on cons.conrelid = a.attrelid AND
+                    a.attnum = ANY(cons.conkey)
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'u'
+[2022-09-25T05:58:37.013+0000] {log.py:117} INFO - 
+            SELECT
+                cons.conname as name,
+                cons.conkey as key,
+                a.attnum as col_num,
+                a.attname as col_name
+            FROM
+                pg_catalog.pg_constraint cons
+                join pg_attribute a
+                  on cons.conrelid = a.attrelid AND
+                    a.attnum = ANY(cons.conkey)
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'u'
+        
+[2022-09-25T05:58:37.014+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,014 INFO sqlalchemy.engine.Engine [generated in 0.00089s] {'table_oid': 16978}
+[2022-09-25T05:58:37.014+0000] {log.py:117} INFO - [generated in 0.00089s] {'table_oid': 16978}
+[2022-09-25T05:58:37.025+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,025 INFO sqlalchemy.engine.Engine 
+            SELECT
+                cons.conname as name,
+                pg_get_constraintdef(cons.oid) as src
+            FROM
+                pg_catalog.pg_constraint cons
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'c'
+[2022-09-25T05:58:37.025+0000] {log.py:117} INFO - 
+            SELECT
+                cons.conname as name,
+                pg_get_constraintdef(cons.oid) as src
+            FROM
+                pg_catalog.pg_constraint cons
+            WHERE
+                cons.conrelid = %(table_oid)s AND
+                cons.contype = 'c'
+        
+[2022-09-25T05:58:37.025+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,025 INFO sqlalchemy.engine.Engine [generated in 0.00087s] {'table_oid': 16978}
+[2022-09-25T05:58:37.025+0000] {log.py:117} INFO - [generated in 0.00087s] {'table_oid': 16978}
+[2022-09-25T05:58:37.027+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,027 INFO sqlalchemy.engine.Engine 
+            SELECT
+                pgd.description as table_comment
+            FROM
+                pg_catalog.pg_description pgd
+            WHERE
+                pgd.objsubid = 0 AND
+                pgd.objoid = %(table_oid)s
+[2022-09-25T05:58:37.027+0000] {log.py:117} INFO - 
+            SELECT
+                pgd.description as table_comment
+            FROM
+                pg_catalog.pg_description pgd
+            WHERE
+                pgd.objsubid = 0 AND
+                pgd.objoid = %(table_oid)s
+        
+[2022-09-25T05:58:37.028+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,028 INFO sqlalchemy.engine.Engine [generated in 0.00055s] {'table_oid': 16978}
+[2022-09-25T05:58:37.028+0000] {log.py:117} INFO - [generated in 0.00055s] {'table_oid': 16978}
+[2022-09-25T05:58:37.029+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,029 INFO sqlalchemy.engine.Engine ROLLBACK
+[2022-09-25T05:58:37.029+0000] {log.py:117} INFO - ROLLBACK
+[2022-09-25T05:58:37.030+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,030 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:37.030+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:37.031+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,031 INFO sqlalchemy.engine.Engine 
+DROP TABLE traffic_data
+[2022-09-25T05:58:37.031+0000] {log.py:117} INFO - 
+DROP TABLE traffic_data
+[2022-09-25T05:58:37.032+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,031 INFO sqlalchemy.engine.Engine [no key 0.00057s] {}
+[2022-09-25T05:58:37.031+0000] {log.py:117} INFO - [no key 0.00057s] {}
+[2022-09-25T05:58:37.046+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,046 INFO sqlalchemy.engine.Engine COMMIT
+[2022-09-25T05:58:37.046+0000] {log.py:117} INFO - COMMIT
+[2022-09-25T05:58:37.056+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,056 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:37.056+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:37.059+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,059 INFO sqlalchemy.engine.Engine 
+CREATE TABLE traffic_data (
+	id BIGINT, 
+	track_id BIGINT, 
+	" type" TEXT, 
+	" traveled_d" FLOAT(53), 
+	" avg_speed" FLOAT(53), 
+	" lat" FLOAT(53), 
+	" lon" FLOAT(53), 
+	" speed" FLOAT(53), 
+	" lon_acc" FLOAT(53), 
+	" lat_acc" FLOAT(53), 
+	" time" FLOAT(53)
+)
+[2022-09-25T05:58:37.059+0000] {log.py:117} INFO - 
+CREATE TABLE traffic_data (
+	id BIGINT, 
+	track_id BIGINT, 
+	" type" TEXT, 
+	" traveled_d" FLOAT(53), 
+	" avg_speed" FLOAT(53), 
+	" lat" FLOAT(53), 
+	" lon" FLOAT(53), 
+	" speed" FLOAT(53), 
+	" lon_acc" FLOAT(53), 
+	" lat_acc" FLOAT(53), 
+	" time" FLOAT(53)
+)
+
+
+[2022-09-25T05:58:37.060+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,060 INFO sqlalchemy.engine.Engine [no key 0.00091s] {}
+[2022-09-25T05:58:37.060+0000] {log.py:117} INFO - [no key 0.00091s] {}
+[2022-09-25T05:58:37.070+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,070 INFO sqlalchemy.engine.Engine CREATE INDEX ix_traffic_data_id ON traffic_data (id)
+[2022-09-25T05:58:37.070+0000] {log.py:117} INFO - CREATE INDEX ix_traffic_data_id ON traffic_data (id)
+[2022-09-25T05:58:37.071+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,071 INFO sqlalchemy.engine.Engine [no key 0.00062s] {}
+[2022-09-25T05:58:37.071+0000] {log.py:117} INFO - [no key 0.00062s] {}
+[2022-09-25T05:58:37.079+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,079 INFO sqlalchemy.engine.Engine COMMIT
+[2022-09-25T05:58:37.079+0000] {log.py:117} INFO - COMMIT
+[2022-09-25T05:58:37.099+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,099 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2022-09-25T05:58:37.099+0000] {log.py:117} INFO - BEGIN (implicit)
+[2022-09-25T05:58:37.102+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,102 INFO sqlalchemy.engine.Engine INSERT INTO traffic_data (id, track_id, " type", " traveled_d", " avg_speed", " lat", " lon", " speed", " lon_acc", " lat_acc", " time") VALUES (%(id)s, %(track_id)s, %( type)s, %( traveled_d)s, %( avg_speed)s, %( lat)s, %( lon)s, %( speed)s, %( lon_acc)s, %( lat_acc)s, %( time)s)
+[2022-09-25T05:58:37.102+0000] {log.py:117} INFO - INSERT INTO traffic_data (id, track_id, " type", " traveled_d", " avg_speed", " lat", " lon", " speed", " lon_acc", " lat_acc", " time") VALUES (%(id)s, %(track_id)s, %( type)s, %( traveled_d)s, %( avg_speed)s, %( lat)s, %( lon)s, %( speed)s, %( lon_acc)s, %( lat_acc)s, %( time)s)
+[2022-09-25T05:58:37.103+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,102 INFO sqlalchemy.engine.Engine [generated in 0.00112s] ({'id': 0, 'track_id': 1, ' type': ' Car', ' traveled_d': 48.85, ' avg_speed': 9.770344, ' lat': 37.977391, ' lon': 23.737688, ' speed': 4.9178, ' lon_acc': 0.0518, ' lat_acc': -0.0299, ' time': 0.0}, {'id': 1, 'track_id': 2, ' type': ' Motorcycle', ' traveled_d': 98.09, ' avg_speed': 19.839417, ' lat': 37.977642, ' lon': 23.7374, ' speed': 16.9759, ' lon_acc': -0.0361, ' lat_acc': -0.0228, ' time': 0.0}, {'id': 2, 'track_id': 3, ' type': ' Motorcycle', ' traveled_d': 63.8, ' avg_speed': 18.228752, ' lat': 37.977997, ' lon': 23.737264, ' speed': 20.1906, ' lon_acc': -0.0795, ' lat_acc': -0.3395, ' time': 0.0}, {'id': 3, 'track_id': 4, ' type': ' Motorcycle', ' traveled_d': 145.72, ' avg_speed': 26.229014, ' lat': 37.978135, ' lon': 23.737072, ' speed': 2.7555, ' lon_acc': -0.0302, ' lat_acc': 0.0948, ' time': 0.0}, {'id': 4, 'track_id': 5, ' type': ' Motorcycle', ' traveled_d': 138.01, ' avg_speed': 24.841425, ' lat': 37.978134, ' lon': 23.737103, ' speed': 0.0, ' lon_acc': 0.0, ' lat_acc': 0.0, ' time': 0.0})
+[2022-09-25T05:58:37.102+0000] {log.py:117} INFO - [generated in 0.00112s] ({'id': 0, 'track_id': 1, ' type': ' Car', ' traveled_d': 48.85, ' avg_speed': 9.770344, ' lat': 37.977391, ' lon': 23.737688, ' speed': 4.9178, ' lon_acc': 0.0518, ' lat_acc': -0.0299, ' time': 0.0}, {'id': 1, 'track_id': 2, ' type': ' Motorcycle', ' traveled_d': 98.09, ' avg_speed': 19.839417, ' lat': 37.977642, ' lon': 23.7374, ' speed': 16.9759, ' lon_acc': -0.0361, ' lat_acc': -0.0228, ' time': 0.0}, {'id': 2, 'track_id': 3, ' type': ' Motorcycle', ' traveled_d': 63.8, ' avg_speed': 18.228752, ' lat': 37.977997, ' lon': 23.737264, ' speed': 20.1906, ' lon_acc': -0.0795, ' lat_acc': -0.3395, ' time': 0.0}, {'id': 3, 'track_id': 4, ' type': ' Motorcycle', ' traveled_d': 145.72, ' avg_speed': 26.229014, ' lat': 37.978135, ' lon': 23.737072, ' speed': 2.7555, ' lon_acc': -0.0302, ' lat_acc': 0.0948, ' time': 0.0}, {'id': 4, 'track_id': 5, ' type': ' Motorcycle', ' traveled_d': 138.01, ' avg_speed': 24.841425, ' lat': 37.978134, ' lon': 23.737103, ' speed': 0.0, ' lon_acc': 0.0, ' lat_acc': 0.0, ' time': 0.0})
+[2022-09-25T05:58:37.120+0000] {logging_mixin.py:117} INFO - 2022-09-25 05:58:37,119 INFO sqlalchemy.engine.Engine COMMIT
+[2022-09-25T05:58:37.119+0000] {log.py:117} INFO - COMMIT
+[2022-09-25T05:58:37.126+0000] {logging_mixin.py:117} INFO - <<<<<<<<<<<<<<<<<<<completed>>>>>>>>>>>>>>>>
+[2022-09-25T05:58:37.126+0000] {python.py:177} INFO - Done. Returned value was: None
+[2022-09-25T05:58:37.198+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=migrate_data, task_id=migrate, execution_date=20220925T055825, start_date=20220925T055831, end_date=20220925T055837
+[2022-09-25T05:58:37.282+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-09-25T05:58:37.337+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

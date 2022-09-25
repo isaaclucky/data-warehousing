@@ -2,11 +2,11 @@ dbt-postgres:
   target: dev
   outputs:
     dev:
-      type: postgresql
-      host: localhost
+      type: postgres
+      host: postgres
       user: airflow
       password: airflow
-      port: 5434
+      port: 5432
       dbname: airflow
       schema: public
       threads: 3
