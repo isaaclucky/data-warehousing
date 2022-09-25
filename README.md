@@ -155,7 +155,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Yishak Tadele - [@email](https://www.linkedin.com/in/yishak-tadele/) - isaaclucky88@gmail.com
+Yishak Tadele - [@email](isaaclucky88@gmail.com)
+              - [linked-in](https://www.linkedin.com/in/yishak-tadele/)
 
 
 <!-- ACKNOWLEDGEMENTS -->
