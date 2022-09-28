@@ -1,0 +1,17 @@
+[2022-09-26T08:46:23.274+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.cast_obj scheduled__2021-07-13T00:00:00+00:00 [queued]>
+[2022-09-26T08:46:23.356+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.cast_obj scheduled__2021-07-13T00:00:00+00:00 [queued]>
+[2022-09-26T08:46:23.356+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T08:46:23.357+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 2
+[2022-09-26T08:46:23.357+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T08:46:23.573+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): model.migrate_to_dbt.cast_obj> on 2021-07-13 00:00:00+00:00
+[2022-09-26T08:46:23.587+0000] {standard_task_runner.py:54} INFO - Started process 4890 to run task
+[2022-09-26T08:46:23.717+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'model.migrate_to_dbt.cast_obj', 'scheduled__2021-07-13T00:00:00+00:00', '--job-id', '828', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmp8p5hzdgm']
+[2022-09-26T08:46:23.793+0000] {standard_task_runner.py:83} INFO - Job 828: Subtask model.migrate_to_dbt.cast_obj
+[2022-09-26T08:46:23.825+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_dag.py
+[2022-09-26T08:46:54.878+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 828 for task model.migrate_to_dbt.cast_obj ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 4890)
+[2022-09-26T08:47:00.183+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-26T08:47:00.605+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -87,8 +87,8 @@
 ## Installation guide
 
 ```bash
-git clone https://github.com/isaaclucky/Large_Language_Models.git
-cd Large_Language_Models
+git clone https://github.com/isaaclucky/data-warehousing.git
+cd data-warehousing
 sudo python3 setup.py install
 ```
 ## Tech Stack 
@@ -156,7 +156,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Yishak Tadele - [@email](isaaclucky88@gmail.com)
-              - [linked-in](https://www.linkedin.com/in/yishak-tadele/)
+Contact Me              - [@contact](https://www.linkedin.com/in/yishak-tadele/)
 
 
 <!-- ACKNOWLEDGEMENTS -->

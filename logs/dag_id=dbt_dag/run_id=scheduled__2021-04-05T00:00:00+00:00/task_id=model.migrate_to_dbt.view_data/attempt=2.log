@@ -1,0 +1,17 @@
+[2022-09-26T08:13:36.595+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data scheduled__2021-04-05T00:00:00+00:00 [queued]>
+[2022-09-26T08:13:36.718+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data scheduled__2021-04-05T00:00:00+00:00 [queued]>
+[2022-09-26T08:13:36.718+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T08:13:36.720+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 2
+[2022-09-26T08:13:36.720+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T08:13:36.942+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): model.migrate_to_dbt.view_data> on 2021-04-05 00:00:00+00:00
+[2022-09-26T08:13:36.991+0000] {standard_task_runner.py:54} INFO - Started process 2061 to run task
+[2022-09-26T08:13:37.002+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'model.migrate_to_dbt.view_data', 'scheduled__2021-04-05T00:00:00+00:00', '--job-id', '459', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmpv6z71aj1']
+[2022-09-26T08:13:37.015+0000] {standard_task_runner.py:83} INFO - Job 459: Subtask model.migrate_to_dbt.view_data
+[2022-09-26T08:13:37.032+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_dag.py
+[2022-09-26T08:14:03.947+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 459 for task model.migrate_to_dbt.view_data ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 2061)
+[2022-09-26T08:14:05.633+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-26T08:14:10.325+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

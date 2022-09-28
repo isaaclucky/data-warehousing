@@ -1,0 +1,36 @@
+[2022-09-26T11:33:40.258+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data scheduled__2021-11-27T00:00:00+00:00 [queued]>
+[2022-09-26T11:33:40.279+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data scheduled__2021-11-27T00:00:00+00:00 [queued]>
+[2022-09-26T11:33:40.279+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T11:33:40.279+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-09-26T11:33:40.280+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-26T11:33:40.309+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): model.migrate_to_dbt.view_data> on 2021-11-27 00:00:00+00:00
+[2022-09-26T11:33:40.316+0000] {standard_task_runner.py:54} INFO - Started process 3210 to run task
+[2022-09-26T11:33:40.321+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dbt_dag', 'model.migrate_to_dbt.view_data', 'scheduled__2021-11-27T00:00:00+00:00', '--job-id', '1376', '--raw', '--subdir', 'DAGS_FOLDER/dbt_dag.py', '--cfg-path', '/tmp/tmpv5hhcn6t']
+[2022-09-26T11:33:40.322+0000] {standard_task_runner.py:83} INFO - Job 1376: Subtask model.migrate_to_dbt.view_data
+[2022-09-26T11:33:40.324+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/dbt_dag.py
+[2022-09-26T11:33:40.436+0000] {task_command.py:384} INFO - Running <TaskInstance: dbt_dag.model.migrate_to_dbt.view_data scheduled__2021-11-27T00:00:00+00:00 [running]> on host 3c654011b3f0
+[2022-09-26T11:33:40.621+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=isaaclucky88@gmail.com
+AIRFLOW_CTX_DAG_OWNER=astronomer
+AIRFLOW_CTX_DAG_ID=dbt_dag
+AIRFLOW_CTX_TASK_ID=model.migrate_to_dbt.view_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-11-27T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-11-27T00:00:00+00:00
+[2022-09-26T11:33:40.623+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-26T11:33:40.624+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n            cd /opt/***/migrate_to_dbt &&\n            dbt --no-write-json run --target prod --models view_data\n            ']
+[2022-09-26T11:33:40.643+0000] {subprocess.py:86} INFO - Output:
+[2022-09-26T11:33:40.646+0000] {subprocess.py:93} INFO - /bin/bash: line 3: dbt: command not found
+[2022-09-26T11:33:40.647+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2022-09-26T11:33:40.669+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2022-09-26T11:33:40.676+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=dbt_dag, task_id=model.migrate_to_dbt.view_data, execution_date=20211127T000000, start_date=20220926T113340, end_date=20220926T113340
+[2022-09-26T11:33:40.700+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 1376 for task model.migrate_to_dbt.view_data (Bash command failed. The command returned a non-zero exit code 127.; 3210)
+[2022-09-26T11:33:40.733+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2022-09-26T11:33:40.975+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
