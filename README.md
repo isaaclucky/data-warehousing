@@ -17,15 +17,13 @@
 
   <p align="center">
     A fully dockerized ELT pipeline project, using PostgreSQL, dbt, Apache Airflow, and Redash.
-    <br />
-    <a href="https://traffic-data-docs.herokuapp.com"><strong>Explore the docs »</strong></a>
-    <br />
+    
     <br />
   </p>
 </p>
 
 ## Articles
-- [Medium Article](https://medium.com/@isaaclucky88/data-engineering-best-practices-tech-stack-with-postgresql-db-airflow-and-redash-c7d330cfc3b)
+- [Google Article](https://sites.google.com/view/yishak-tadele/projects/data-engineering-best-practices)
 
 ## Table of Contents
 
